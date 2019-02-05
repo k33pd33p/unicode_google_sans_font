@@ -1,7 +1,7 @@
-id=bfgs
+id=unifontgs
 name=[Font] GoogleSans
 version=3.0
 versionCode=30
 author=nongthaihoang
-description=Complete Pack of Google Sans Font.
+description=Full Unicode Google Sans Font.
 minMagisk=17000
