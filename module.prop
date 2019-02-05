@@ -1,7 +1,7 @@
-id=unifontgs
-name=[Font] GoogleSans
+id=fontgs
+name=Unicode Google Sans Font
 version=3.0
 versionCode=30
 author=nongthaihoang
-description=Full Unicode Google Sans Font.
+description=Full Unicode Google Sans Font For Android.
 minMagisk=17000

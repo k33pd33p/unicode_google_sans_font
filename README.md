@@ -12,4 +12,4 @@ If you like my works or have any problems, just let me know.
 
 ## Changelog
 **3.0**
-- Now on Magisk repo
+- Now on Magisk Repo
