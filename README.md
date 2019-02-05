@@ -1,5 +1,6 @@
 # Unicode Google Sans Font
-<img src="https://img.shields.io/badge/Version-3.0-brightgreen.svg"> <a href="https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349"><img src="https://img.shields.io/badge/XDA-Thread-orange.svg"></a>
+
+![](https://img.shields.io/badge/Version-3.0-brightgreen.svg) [![](https://img.shields.io/badge/XDA-Thread-orange.svg)](https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349)
 
 ## Features
 - Full unicode encoding
