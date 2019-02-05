@@ -1,4 +1,4 @@
-# Full Unicode Google Sans Font
+# Unicode Google Sans Font
 <img src="https://img.shields.io/badge/Version-3.0-brightgreen.svg"> <a href="https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349"><img src="https://img.shields.io/badge/XDA-Thread-orange.svg"></a>
 
 ## Features
