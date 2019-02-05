@@ -1,11 +1,11 @@
 # Unicode Google Sans Font
 
-![](https://img.shields.io/badge/Version-3.0-brightgreen.svg) [![](https://img.shields.io/badge/XDA-Thread-orange.svg)](https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349)
+![version](https://img.shields.io/badge/Version-3.0-brightgreen.svg) ![update](https://img.shields.io/badge/Update-Feb_5,_2019-blue.svg) [![xda](https://img.shields.io/badge/XDA-Thread-orange.svg)](https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349) 
 
 ## Features
-- Full unicode encoding
-- Vietnamese language
-- Fixes and tweaks
+- Full Unicode Encoding
+- Vietnamese Language
+- Fixes and Tweaks
 
 ## About
 I don't just rename the font. I do make it work as if it's Roboto. Say goodbye to boxes (aka missing glyphs).
