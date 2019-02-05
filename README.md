@@ -8,8 +8,8 @@
 - Fixes and Tweaks
 
 ## About
-I don't just rename the font. I do make it work as if it's Roboto. Say goodbye to boxes (aka missing glyphs).
-If you like my works or have any problems, just let me know.
+I do not just rename the font. I do make it works as if it was Roboto. Say goodbye to boxes (missing glyphs).
+If you like my work or have any problems, just let me know.
 
 ## Changelog
 **3.0**
