@@ -1,7 +1,7 @@
 id=unigsfont
 name=Unicode Google Sans Font
 version=3.0.0
-versionCode=1
+versionCode=300
 author=nongthaihoang
 description=Full Unicode Google Sans Font For Android.
 minMagisk=17000
