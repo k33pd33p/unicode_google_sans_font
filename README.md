@@ -10,8 +10,7 @@
 - 🔧 Fixes and Tweaks
 
 ## About
-I do not just rename the font. I do make it works as if it was Roboto.  
-If you like my work or have any problems, just let me know.
+The first and only Google Sans font that works perfectly as Roboto.
 
 ## Changelog
 **v3.0.0 (05/02/2019)**
