@@ -5,9 +5,9 @@
 [![xda](https://img.shields.io/badge/XDA-Thread-orange.svg)](https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349) 
 
 ## Features
-- Full Unicode Encoding
-- Vietnamese Language
-- Fixes and Tweaks
+- 🔣 Full Unicode Encoding
+- 🇻🇳 Vietnamese Language
+- 🔧 Fixes and Tweaks
 
 ## About
 I do not just rename the font. I do make it works as if it was Roboto.  
