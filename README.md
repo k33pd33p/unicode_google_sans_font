@@ -1,4 +1,5 @@
 # Unicode Google Sans Font
+**The first and only Google Sans font that works perfectly as Roboto**
 
 ![version](https://img.shields.io/badge/Version-3.0.0-brightgreen.svg) 
 ![update](https://img.shields.io/badge/Update-Feb_5,_2019-blue.svg) 
@@ -14,4 +15,4 @@ The first and only Google Sans font that works perfectly as Roboto.
 
 ## Changelog
 **v3.0.0 (05/02/2019)**
-- Now on Magisk Repo
+- Now on Github
