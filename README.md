@@ -10,9 +10,6 @@
 - 🇻🇳 Vietnamese Language
 - 🔧 Fixes and Tweaks
 
-## About
-The first and only Google Sans font that works perfectly as Roboto.
-
 ## Changelog
 **v3.0.0 (05/02/2019)**
 - Now on Github
