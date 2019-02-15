@@ -6,14 +6,14 @@
 [![xda](https://img.shields.io/badge/XDA-Thread-orange.svg)](https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349) 
 
 ## Features
-- 🔣 Full Unicode Encoding
-- 🇻🇳 Vietnamese Language
-- 🔧 Fixes and Tweaks
+- Full Unicode Encoding
+- Vietnamese Language
+- Fixes and Tweaks
 
 ## Changelog
-**v3.0.0 (05/02/2019)**
-- Now on Github
-
 **v3.1.0 (14/02/2019)**
 - Fixed kerning
-- New Bold Vietnamese
+- New bold vietnamese
+
+**v3.0.0 (05/02/2019)**
+- Now on Github
