@@ -11,9 +11,14 @@
 - Fixes and Tweaks
 
 ## Changelog
+**v3.1.1 (17/02/2019)**
+- Removed Black\* Thin\* CN-Light\* styles
+- Reverted GS Bold\* Medium\* to origin
+- Changed line spacing metric
+
 **v3.1.0 (14/02/2019)**
 - Fixed kerning
-- New bold vietnamese
+- New Bold Vietnamese
 
 **v3.0.0 (05/02/2019)**
 - Now on Github
