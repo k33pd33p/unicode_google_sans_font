@@ -11,7 +11,7 @@
 - Fixes and Tweaks
 
 ## Changelog
-**v3.1.2 (18/02/2019)**
+**v3.1.2-pre-final (18/02/2019)**
 - Fixed kerning of Rototo part
 - Reverted 'Reverted GS Bold\* Medium\* to origin'
 - Changed kerning of CF
