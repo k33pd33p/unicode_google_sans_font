@@ -5,6 +5,5 @@
 ![update](https://img.shields.io/badge/Update-Feb_18,_2019-blue.svg) 
 [![xda](https://img.shields.io/badge/XDA-Thread-orange.svg)](https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349) 
 
-## Features
-- No problem whatsoever. It just works.
-- Flash it and enjoy your life.
+## Description
+- The font has no problem whatsoever. It just works. Install it and enjoy.
