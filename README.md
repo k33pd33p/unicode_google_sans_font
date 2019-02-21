@@ -6,4 +6,5 @@
 [![xda](https://img.shields.io/badge/XDA-Thread-orange.svg)](https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349) 
 
 ## Features
-- Nothing special. It just works. ^^
+- No problem whatsoever. It just works.
+- Flash it and enjoy your life.
