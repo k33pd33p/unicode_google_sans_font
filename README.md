@@ -6,4 +6,4 @@
 [![xda](https://img.shields.io/badge/XDA-Thread-orange.svg)](https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349) 
 
 ## Description
-The font has no problem whatsoever. It just works. Install it and enjoy.
+A Magisk module of Google Sans font. Everything works as it should be. Install it and enjoy.
