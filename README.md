@@ -7,3 +7,10 @@
 
 ## Description
 A Magisk module of Google Sans font. Everything works as it should. Just install it and enjoy.
+
+## Features
+![version](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/GS.png)
+![version](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/hl.png)
+![version](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/bd.png)
+![version](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/cn.png)
+![version](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/pg.png)
