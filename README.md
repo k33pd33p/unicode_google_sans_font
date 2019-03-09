@@ -15,3 +15,6 @@ A Magisk module of Google Sans font. Everything works as it should. Just install
 ![version](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/c.png)
 ![version](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/u.png)
 ![version](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/p.png)
+
+## How the font is made
+[Guide](https://youtu.be/ejQj0ytoeYk)
