@@ -1,7 +1,7 @@
 id=unigsfont
 name=Unicode Google Sans Font
-version=4.0.1-final
-versionCode=401
+version=4.0.2-final
+versionCode=402
 author=nongthaihoang
-description=The first and only Google Sans font that works.
+description=Android system font Google Sans.
 minMagisk=17000
