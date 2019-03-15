@@ -1,7 +1,7 @@
 # Unicode Google Sans Font
 **Android system font Google Sans**
 
-![version](https://img.shields.io/badge/Version-4.0.2--final-brightgreen.svg) 
+![version](https://img.shields.io/badge/Version-4.0.2-brightgreen.svg) 
 ![update](https://img.shields.io/badge/Update-Mar_15,_2019-blue.svg) 
 [![xda](https://img.shields.io/badge/XDA-Thread-orange.svg)](https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349) 
 
@@ -20,4 +20,4 @@ A Magisk module of Google Sans font. Everything works as it should. Just install
 [Guide](https://youtu.be/ejQj0ytoeYk)
 
 ## Download
-[Click here](https://github.com/nongthaihoang/unicode_google_sans_font/releases/tag/v4.0.2-final)
+[Click here](https://github.com/nongthaihoang/unicode_google_sans_font/releases)
