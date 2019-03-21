@@ -30,13 +30,13 @@ while $NOK; do
 	fi
 done
 
-echo -e "\nYou selected:"
+echo -e "\nYou selected $SEL"
 case $SEL in
-	1 ) full; echo $sel1;;
-	2 ) full; alt; echo $sel2;;
-	3 ) hf; echo $sel3;;
-	4 ) hf; bf; echo $sel4;;
-	5 ) hf; bf; alt; echo $sel5;;
+	1 ) full;;
+	2 ) full; alt;
+	3 ) hf;;
+	4 ) hf; bf;;
+	5 ) hf; bf; alt;;
 esac
 
 echo ""
