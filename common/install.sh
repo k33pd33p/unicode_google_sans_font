@@ -11,11 +11,11 @@ echo "
 Which version do you want to install?
 Vol+ = Select; Vol- = Ok
 
-1: Full
-2: Full + Alternative
-3: Headline
-4: Headline/Body
-5: Headline/Body + Alternative
+1. Full
+2. Full + Alternative
+3. Headline
+4. Headline/Body
+5. Headline/Body + Alternative
 "
 echo 'Answer:'
 while $NOK; do
