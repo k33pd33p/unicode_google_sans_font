@@ -8,7 +8,7 @@ SEL=1
 NOK=true
 
 echo "
-Which version will be installed?
+Which version?
 Vol+ = Select; Vol- = Ok
 
 1. Full
