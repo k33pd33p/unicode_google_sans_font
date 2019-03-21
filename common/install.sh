@@ -3,9 +3,11 @@ bf () { cp -r $INSTALLER/custom/BF/* $INSTALLER/system/; }
 cf () { cp -r $INSTALLER/custom/CF/* $INSTALLER/system/; }
 full () { hf; bf; cf; }
 alt () { cp -r $INSTALLER/custom/Alt/* $INSTALLER/system/; }
+xml () { cp -r $INSTALLER/custom/fontxml/* $INSTALLER/system/; }
 
 SEL=1
 NOK=true
+XML=false
 
 echo "
 Which version?
@@ -31,6 +33,17 @@ while $NOK; do
 done
 
 echo -e "\nSelected:\n$SEL\n"
+
+echo 'Include fontxml?
+Vol+ = Yes; Vol- = No
+'
+if $VKSEL; then
+	XML = true	
+	echo "Selected:\nYes"
+else
+	echo "Selected:\nNo"	
+fi
+
 case $SEL in
 	1 ) full;;
 	2 ) full; alt;;
@@ -38,5 +51,9 @@ case $SEL in
 	4 ) hf; bf;;
 	5 ) hf; bf; alt;;
 esac
+
+if $XML; then
+	xml
+fi
 
 echo ""
