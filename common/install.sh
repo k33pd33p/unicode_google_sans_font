@@ -33,7 +33,7 @@ done
 echo -e "\nYou selected $SEL.\n"
 case $SEL in
 	1 ) full;;
-	2 ) full; alt;
+	2 ) full; alt;;
 	3 ) hf;;
 	4 ) hf; bf;;
 	5 ) hf; bf; alt;;
