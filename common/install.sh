@@ -30,7 +30,7 @@ while $NOK; do
 	fi
 done
 
-echo -e "\nYou selected $SEL\n"
+echo -e "\nYou selected $SEL.\n"
 case $SEL in
 	1 ) full;;
 	2 ) full; alt;
