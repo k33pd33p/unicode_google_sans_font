@@ -1,8 +1,8 @@
-hf () { cp -rv $INSTALLER/custom/HF/* $INSTALLER/system/; }
-bf () { cp -rv $INSTALLER/custom/BF/* $INSTALLER/system/; }
-cf () { cp -rv $INSTALLER/custom/CF/* $INSTALLER/system/; }
+hf () { cp -r $INSTALLER/custom/HF/* $INSTALLER/system/; }
+bf () { cp -r $INSTALLER/custom/BF/* $INSTALLER/system/; }
+cf () { cp -r $INSTALLER/custom/CF/* $INSTALLER/system/; }
 full () { hf; bf; cf; }
-alt () { cp -rv $INSTALLER/custom/Alt/* $INSTALLER/system/; }
+alt () { cp -r $INSTALLER/custom/Alt/* $INSTALLER/system/; }
 
 SEL=1
 NOK=true
