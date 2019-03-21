@@ -29,7 +29,7 @@ print_modname() {
 # Uncomment SYSOVERRIDE if you want the mod to always be installed to system (even on magisk) - note that this can still be set to true by the user by adding 'sysover' to the zipname
 # Uncomment DEBUG if you want full debug logs (saved to /sdcard in magisk manager and the zip directory in twrp) - note that this can still be set to true by the user by adding 'debug' to the zipname
 #MINAPI=21
-#MAXAPI=25
+MAXAPI=28
 #DYNAMICOREO=true
 #SYSOVERRIDE=true
 #DEBUG=true

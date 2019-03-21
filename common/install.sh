@@ -38,10 +38,10 @@ echo 'Include fontxml?
 Vol+ = Yes; Vol- = No
 '
 if $VKSEL; then
-	XML = true	
-	echo "Selected:\nYes"
+	XML=true	
+	echo -e "Selected:\nYes"
 else
-	echo "Selected:\nNo"	
+	echo -e "Selected:\nNo"	
 fi
 
 case $SEL in
@@ -54,6 +54,7 @@ esac
 
 if $XML; then
 	xml
+	echo "Hello"
 fi
 
 echo ""
