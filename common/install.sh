@@ -11,18 +11,18 @@ VER=1
 XML=false
 
 # 1st selection ---------------------------------------- 
-echo "
-Which part of the system font do you want to replace?
-Vol+ = Select; Vol- = Ok
-
-1. Full
-2. Headline
-3. Headline/Body
-"
-echo "Select:"
+ui_print " "
+ui_print "Which part of the system font do you want to replace?"
+ui_print "Vol+ = Select; Vol- = Ok"
+ui_print " "
+ui_print "1. Full"
+ui_print "2. Headline"
+ui_print "3. Headline/Body"
+ui_print " "
+ui_print "Select:"
 OK=true
 while $OK; do
-	echo "$PART"
+	ui_print "$PART"
 	if $VKSEL; then
 		PART=$((PART + 1))
 	else 
@@ -33,22 +33,23 @@ while $OK; do
 	fi
 done
 
-echo -e "\nSelected:\n$PART"
+ui_print " "
+ui_print "Selected: $PART"
 
 # 2nd selection ---------------------------------------- 
-echo "
-Which version do you want to install?
-Vol+ = Select; Vol- = OK
+ui_print " "
+ui_print "Which version do you want to install?"
+ui_print "Vol+ = Select; Vol- = OK"
+ui_print " "
+ui_print "1. Default"
+ui_print "2. Alternative"
+ui_print "3. Original"
+ui_print " "
 
-1. Default
-2. Alternative
-3. Original
-"
-
-echo "Select:"
+ui_print "Select:"
 OK=true
 while $OK; do
-	echo "$VER"
+	ui_print "$VER"
 	if $VKSEL; then
 		VER=$((VER + 1))
 	else 
@@ -59,17 +60,19 @@ while $OK; do
 	fi
 done
 
-echo -e "\nSelected:\n$VER"
+ui_print " "
+ui_print "Selected: $VER"
 
 # 3rd selection ---------------------------------------- 
-echo -e "\nInclude fontxml?
-Vol+ = Yes; Vol- = No
-"
+ui_print " "
+ui_print "Include fontxml?"
+ui_print "Vol+ = Yes; Vol- = No"
+ui_print " "
 if $VKSEL; then
 	XML=true	
-	echo -e "Selected:\nYes"
+	ui_print "Selected: Yes"
 else
-	echo -e "Selected:\nNo"	
+	ui_print "Selected: No"	
 fi
 
 # installation  ---------------------------------------- 
@@ -88,4 +91,4 @@ if $XML; then
 	xml
 fi
 
-echo ""
+ui_print " "
