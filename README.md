@@ -6,7 +6,7 @@
 [![xda](https://img.shields.io/badge/XDA-Thread-orange.svg)](https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349) 
 
 ## Description
-A Magisk module of Google Sans font. Everything works as it should. Just install it and enjoy.
+A flashable zip of Google Sans font. Everything works as it should. Just install it and enjoy.
 
 ## Features
 ![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/g.png)
