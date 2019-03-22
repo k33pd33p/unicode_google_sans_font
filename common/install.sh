@@ -33,7 +33,7 @@ while $OK; do
 	fi
 done
 
-echo -e "\nSelected:\n$PART\n"
+echo -e "\nSelected:\n$PART"
 
 # 2nd selection ---------------------------------------- 
 echo "
@@ -59,10 +59,10 @@ while $OK; do
 	fi
 done
 
-echo -e "\nSelected:\n$VER\n"
+echo -e "\nSelected:\n$VER"
 
 # 3rd selection ---------------------------------------- 
-echo "Include fontxml?
+echo -e "\nInclude fontxml?
 Vol+ = Yes; Vol- = No
 "
 if $VKSEL; then
