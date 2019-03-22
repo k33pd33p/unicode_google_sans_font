@@ -18,11 +18,10 @@ A Magisk module of Google Sans font. Everything works as it should. Just install
 
 ## Installation
 Choose a version that suits you best:
-- **Full**: complete 22 styles
-- **Full + Alternative**: 22 styles + more readable
+- **Full**: default with 22 styles
 - **Headline**: only apply to headline text
 - **Headline/Body**: only apply to headline/body text
-- **Headline/Body + Alternative**: only apply to headline/body text + more readable 
+- **Alternative**: + more readable
 - **fontxml**: the default font configuration of android pie, may be needed on some roms.
 
 ## How the font was made

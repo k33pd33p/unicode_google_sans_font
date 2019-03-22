@@ -1,42 +1,70 @@
-hf () { cp -r $INSTALLER/custom/HF/* $INSTALLER/system/; }
-bf () { cp -r $INSTALLER/custom/BF/* $INSTALLER/system/; }
-cf () { cp -r $INSTALLER/custom/CF/* $INSTALLER/system/; }
+hf () { cp -r $INSTALLER/custom/HF/* $INSTALLER/system/fonts; }
+bf () { cp -r $INSTALLER/custom/BF/* $INSTALLER/system/fonts; }
+cf () { cp -r $INSTALLER/custom/CF/* $INSTALLER/system/fonts; }
 full () { hf; bf; cf; }
-alt () { cp -r $INSTALLER/custom/Alt/* $INSTALLER/system/; }
-xml () { cp -r $INSTALLER/custom/fontxml/* $INSTALLER/system/; }
+alt () { cp -r $INSTALLER/custom/alt/* $INSTALLER/system/fonts; }
+orig () { cp -r $INSTALLER/custom/orig/* $INSTALLER/system/fonts; }
+xml () { cp -r $INSTALLER/custom/xml/* $INSTALLER/system/; }
 
-SEL=1
-NOK=true
+PART=1
+VER=1
 XML=false
 
+# 1st selection ---------------------------------------- 
 echo "
-Which version?
+Which part of the system font do you want to replace?
 Vol+ = Select; Vol- = Ok
 
 1. Full
-2. Full + Alternative
-3. Headline
-4. Headline/Body
-5. Headline/Body + Alternative
+2. Headline
+3. Headline/Body
 "
-echo 'Select:'
-while $NOK; do
-	echo "$SEL"
+echo "Select:"
+OK=true
+while $OK; do
+	echo "$PART"
 	if $VKSEL; then
-		SEL=$((SEL + 1))
+		PART=$((PART + 1))
 	else 
-		NOK=false
+		OK=false
 	fi
-	if [ $SEL -gt 5 ]; then
-		SEL=1
+	if [ $PART -gt 3 ]; then
+		PART=1
 	fi
 done
 
-echo -e "\nSelected:\n$SEL\n"
+echo -e "\nSelected:\n$PART\n"
 
-echo 'Include fontxml?
+# 2nd selection ---------------------------------------- 
+echo "
+Which version do you want to install?
+Vol+ = Select; Vol- = OK
+
+1. Default
+2. Alternative
+3. Original
+"
+
+echo "Select:"
+OK=true
+while $OK; do
+	echo "$VER"
+	if $VKSEL; then
+		VER=$((VER + 1))
+	else 
+		OK=false
+	fi
+	if [ $VER -gt 3 ]; then
+		VER=1
+	fi
+done
+
+echo -e "\nSelected:\n$VER\n"
+
+# 3rd selection ---------------------------------------- 
+echo "Include fontxml?
 Vol+ = Yes; Vol- = No
-'
+"
 if $VKSEL; then
 	XML=true	
 	echo -e "Selected:\nYes"
@@ -44,17 +72,20 @@ else
 	echo -e "Selected:\nNo"	
 fi
 
-case $SEL in
+# installation  ---------------------------------------- 
+case $PART in
 	1 ) full;;
-	2 ) full; alt;;
-	3 ) hf;;
-	4 ) hf; bf;;
-	5 ) hf; bf; alt;;
+	2 ) hf;;
+	3 ) hf; bf;;
+esac
+
+case $VER in
+	2 ) alt;;
+	3 ) orig;;
 esac
 
 if $XML; then
 	xml
-	echo "Hello"
 fi
 
 echo ""
