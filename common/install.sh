@@ -20,13 +20,13 @@ ui_print "2. Headline"
 ui_print "3. Headline/Body"
 ui_print " "
 ui_print "Select:"
-OK=true
-while $OK; do
+OK=false
+until $OK; do
 	ui_print "$PART"
 	if $VKSEL; then
 		PART=$((PART + 1))
 	else 
-		OK=false
+		OK=true
 	fi
 	if [ $PART -gt 3 ]; then
 		PART=1
@@ -47,13 +47,13 @@ ui_print "3. Original"
 ui_print " "
 
 ui_print "Select:"
-OK=true
-while $OK; do
+OK=false
+until $OK; do
 	ui_print "$VER"
 	if $VKSEL; then
 		VER=$((VER + 1))
 	else 
-		OK=false
+		OK=true
 	fi
 	if [ $VER -gt 3 ]; then
 		VER=1
@@ -65,7 +65,7 @@ ui_print "Selected: $VER"
 
 # 3rd selection ---------------------------------------- 
 ui_print " "
-ui_print "Include fontxml?"
+ui_print "Include fontxml? (No if not sure)"
 ui_print "Vol+ = Yes; Vol- = No"
 ui_print " "
 if $VKSEL; then
@@ -73,6 +73,17 @@ if $VKSEL; then
 	ui_print "Selected: Yes"
 else
 	ui_print "Selected: No"	
+fi
+
+ui_print " "
+ui_print "Proceed?"
+ui_print "Vol+ = Yes; Vol- = No"
+ui_print " "
+if $VKSEL; then
+	ui_print "Selected: Yes"	
+else
+	ui_print "Exit now..."	
+	exit
 fi
 
 # installation  ---------------------------------------- 
