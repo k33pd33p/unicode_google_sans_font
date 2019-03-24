@@ -12,21 +12,20 @@ XML=false
 
 # 1st selection ---------------------------------------- 
 ui_print " "
-ui_print "Which part of the system font do you want to replace?"
-ui_print "Vol+ = Select; Vol- = Ok"
+ui_print "- Which part of the system font do you want to replace?"
+ui_print "  Vol+ = Select; Vol- = Ok"
 ui_print " "
-ui_print "1. Full"
-ui_print "2. Headline"
-ui_print "3. Headline/Body"
+ui_print "  1. Full"
+ui_print "  2. Headline"
+ui_print "  3. Headline/Body"
 ui_print " "
-ui_print "Select:"
-OK=false
-until $OK; do
-	ui_print "$PART"
+ui_print "  Select:"
+while true; do
+	ui_print "  $PART"
 	if $VKSEL; then
 		PART=$((PART + 1))
 	else 
-		OK=true
+		break
 	fi
 	if [ $PART -gt 3 ]; then
 		PART=1
@@ -34,26 +33,25 @@ until $OK; do
 done
 
 ui_print " "
-ui_print "Selected: $PART"
+ui_print "* Selected: $PART"
 
 # 2nd selection ---------------------------------------- 
 ui_print " "
-ui_print "Which version do you want to install?"
-ui_print "Vol+ = Select; Vol- = OK"
+ui_print "- Which version do you want to install?"
+ui_print "  Vol+ = Select; Vol- = OK"
 ui_print " "
-ui_print "1. Default"
-ui_print "2. Alternative"
-ui_print "3. Original"
+ui_print "  1. Default"
+ui_print "  2. Alternative"
+ui_print "  3. Original"
 ui_print " "
 
-ui_print "Select:"
-OK=false
-until $OK; do
-	ui_print "$VER"
+ui_print "  Select:"
+while true; do
+	ui_print "  $VER"
 	if $VKSEL; then
 		VER=$((VER + 1))
 	else 
-		OK=true
+		break
 	fi
 	if [ $VER -gt 3 ]; then
 		VER=1
@@ -61,28 +59,28 @@ until $OK; do
 done
 
 ui_print " "
-ui_print "Selected: $VER"
+ui_print "* Selected: $VER"
 
 # 3rd selection ---------------------------------------- 
 ui_print " "
-ui_print "Include fontxml? (No if not sure)"
-ui_print "Vol+ = Yes; Vol- = No"
+ui_print "- Include fontxml? (No if not sure)"
+ui_print "  Vol+ = Yes; Vol- = No"
 ui_print " "
 if $VKSEL; then
 	XML=true	
-	ui_print "Selected: Yes"
+	ui_print "* Selected: Yes"
 else
-	ui_print "Selected: No"	
+	ui_print "* Selected: No"	
 fi
 
 ui_print " "
-ui_print "Proceed?"
-ui_print "Vol+ = Yes; Vol- = No"
+ui_print "- Proceed?"
+ui_print "  Vol+ = Sure; Vol- = Cancel and Exit"
 ui_print " "
 if $VKSEL; then
-	ui_print "Selected: Yes"	
+	ui_print "* Done!"	
 else
-	ui_print "Exit now..."	
+	ui_print "* Exited!"	
 	exit
 fi
 
