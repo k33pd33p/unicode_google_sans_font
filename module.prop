@@ -1,8 +1,8 @@
 id=unigsfont
 name=Unicode Google Sans Font
-version=v4.1.0
-versionCode=410
-author=nongthaihoang
+version=v4.1.1
+versionCode=411
+author=nongthaihoang@xda
 description=Android system font Google Sans.
 support=https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349
 minMagisk=1530
