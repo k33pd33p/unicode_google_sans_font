@@ -65,7 +65,7 @@ fi
 XML=false
 ui_print " "
 ui_print "- Include fontxml?"
-ui_print "  Vol+ = Yes; Vol- = No/Not sure"
+ui_print "  Vol+ = Yes; Vol- = No/Not Sure"
 ui_print " "
 if $VKSEL; then
 	XML=true	
@@ -79,9 +79,9 @@ ui_print "- Proceed?"
 ui_print "  Vol+ = Sure; Vol- = Cancel/Exit"
 ui_print " "
 if $VKSEL; then
-	ui_print "* Sure"	
+	ui_print "* Enjoy!"
 else
-	abort "* Exit..."	
+	abort "* Canceled!"
 fi
 
 # installation  ---------------------------------------- 
