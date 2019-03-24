@@ -22,7 +22,7 @@ Choose a version that suits you best:
 - **Headline**: only apply to headline text
 - **Headline/Body**: only apply to headline/body text
 - **Alternative**: + more readable
-- **fontxml**: the default font configuration of android pie, may be needed on some roms.
+- **fontxml**: the system font configuration of android pie, may be needed on some roms.
 
 ## How the font was made
 [Guide](https://youtu.be/ejQj0ytoeYk)
