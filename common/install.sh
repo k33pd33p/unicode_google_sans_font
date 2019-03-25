@@ -1,10 +1,11 @@
-hf () { cp -R $INSTALLER/custom/HF/* $INSTALLER/system/fonts; }
-bf () { cp -R $INSTALLER/custom/BF/* $INSTALLER/system/fonts; }
-cf () { cp -R $INSTALLER/custom/CF/* $INSTALLER/system/fonts; }
+hf () { cp -R $INSTALLER/custom/hf/* $INSTALLER/system/fonts; }
+bf () { cp -R $INSTALLER/custom/bf/* $INSTALLER/system/fonts; }
+cf () { cp -R $INSTALLER/custom/cf/* $INSTALLER/system/fonts; }
 full () { hf; bf; cf; }
 alt () { cp -R $INSTALLER/custom/alt/* $INSTALLER/system/fonts; }
 orig () { cp -R $INSTALLER/custom/orig/* $INSTALLER/system/fonts; }
 xml () { cp -R $INSTALLER/custom/xml/* $INSTALLER/system/; }
+cust () { cp -R $INSTALLER/custom/system/* $INSTALLER/system/; }
 
 # 1st selection ---------------------------------------- 
 PART=1
@@ -30,7 +31,7 @@ while true; do
 done
 
 ui_print " "
-ui_print "* Selected: $PART"
+ui_print "  Selected: $PART"
 
 # 2nd selection ---------------------------------------- 
 VER=1
@@ -58,7 +59,7 @@ if [ $PART != 2 ]; then
 	done
 
 	ui_print " "
-	ui_print "* Selected: $VER"
+	ui_print "  Selected: $VER"
 fi
 
 # 3rd selection ---------------------------------------- 
@@ -69,20 +70,20 @@ ui_print "  Vol+ = Yes; Vol- = No/Not Sure"
 ui_print " "
 if $VKSEL; then
 	XML=true	
-	ui_print "* Selected: Yes"
+	ui_print "  Selected: Yes"
 else
-	ui_print "* Selected: No"	
+	ui_print "  Selected: No"	
 fi
 
-ui_print " "
-ui_print "- Proceed?"
-ui_print "  Vol+ = Sure; Vol- = Cancel/Exit"
-ui_print " "
-if $VKSEL; then
-	ui_print "* Enjoy!"
-else
-	abort "* Canceled!"
-fi
+#ui_print " "
+#ui_print "- Proceed?"
+#ui_print "  Vol+ = Sure; Vol- = Cancel/Exit"
+#ui_print " "
+#if $VKSEL; then
+#	ui_print "  Enjoy!"
+#else
+#	abort "  Canceled!"
+#fi
 
 # installation  ---------------------------------------- 
 case $PART in
@@ -98,6 +99,14 @@ esac
 
 if $XML; then
 	xml; sed -ie 3's/$/-xml&/' $INSTALLER/module.prop;
+fi
+
+ui_print " "
+if [ -z "$(ls -A $INSTALLER/custom/system)" ]; then
+	ui_print "- No custom files found"
+else
+	ui_print "- Copying custom files"
+	cust; sed -ie 3's/$/-cust&/' $INSTALLER/module.prop
 fi
 
 ui_print " "
