@@ -75,16 +75,6 @@ else
 	ui_print "  Selected: No"	
 fi
 
-#ui_print " "
-#ui_print "- Proceed?"
-#ui_print "  Vol+ = Sure; Vol- = Cancel/Exit"
-#ui_print " "
-#if $VKSEL; then
-#	ui_print "  Enjoy!"
-#else
-#	abort "  Canceled!"
-#fi
-
 # installation  ---------------------------------------- 
 case $PART in
 	1 ) full;;
@@ -101,10 +91,8 @@ if $XML; then
 	xml; sed -ie 3's/$/-xml&/' $INSTALLER/module.prop;
 fi
 
-ui_print " "
-if [ -z "$(ls -A $INSTALLER/custom/system)" ]; then
-	ui_print "- No custom files found"
-else
+if [ -n "$(ls -A $INSTALLER/custom/system)" ]; then
+	ui_print " "
 	ui_print "- Copying custom files"
 	cust; sed -ie 3's/$/-cust&/' $INSTALLER/module.prop
 fi
