@@ -29,7 +29,6 @@ while true; do
 		PART=1
 	fi
 done
-
 ui_print " "
 ui_print "  Selected: $PART"
 
@@ -44,7 +43,6 @@ if [ $PART != 2 ]; then
 	ui_print "  2. Alternative"
 	ui_print "  3. Original"
 	ui_print " "
-
 	ui_print "  Select:"
 	while true; do
 		ui_print "  $VER"
@@ -57,7 +55,6 @@ if [ $PART != 2 ]; then
 			VER=1
 		fi
 	done
-
 	ui_print " "
 	ui_print "  Selected: $VER"
 fi
