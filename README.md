@@ -1,8 +1,8 @@
 # Unicode Google Sans Font
 **Android system font Google Sans**
 
-![version](https://img.shields.io/badge/Version-4.1.0-brightgreen.svg) 
-![update](https://img.shields.io/badge/Update-Mar_22,_2019-blue.svg) 
+![version](https://img.shields.io/badge/Version-4.1.1-brightgreen.svg) 
+![update](https://img.shields.io/badge/Update-Mar_28,_2019-blue.svg) 
 [![xda](https://img.shields.io/badge/XDA-Thread-orange.svg)](https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349) 
 
 ## Description
@@ -18,7 +18,7 @@ A flashable zip of Google Sans font. Everything works as it should. Just install
 
 ## Installation
 Choose a version that suits you best:
-- **Full**: full 22 styles
+- **Full**: full 20+ styles
 - **Headline**: only change headline font
 - **Headline/Body**: only change headline/body font
 - **Alternative**: + more readable
