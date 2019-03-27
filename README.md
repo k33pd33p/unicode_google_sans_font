@@ -24,6 +24,9 @@ Choose a version that suits you best:
 - **Alternative:** + more readable
 - **fontxml:** the system font configuration of android pie, may be needed on some roms.
 
+## Credit
+- [Unity (Un)Installer Template](https://github.com/Zackptg5/Unity)
+
 ## How the font was made
 [Guide](https://youtu.be/ejQj0ytoeYk)
 
