@@ -18,11 +18,11 @@ A flashable zip of Google Sans font. Everything works as it should. Just install
 
 ## Installation
 Choose a version that suits you best:
-- **Full**: full 20+ styles
-- **Headline**: only change headline font
-- **Headline/Body**: only change headline/body font
-- **Alternative**: + more readable
-- **fontxml**: the system font configuration of android pie, may be needed on some roms.
+- **Full:** all 20+ styles
+- **Headline:** only change headline font
+- **Headline/Body:** only change headline/body font
+- **Alternative:** + more readable
+- **fontxml:** the system font configuration of android pie, may be needed on some roms.
 
 ## How the font was made
 [Guide](https://youtu.be/ejQj0ytoeYk)
