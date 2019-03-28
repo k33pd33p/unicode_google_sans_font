@@ -1,10 +1,10 @@
-headline_font() { cp -rf $INSTALLER/custom/hf/* $INSTALLER/system/fonts; }
-body_font() { cp -rf $INSTALLER/custom/bf/* $INSTALLER/system/fonts; }
-condensed_font() { cp -rf $INSTALLER/custom/cf/* $INSTALLER/system/fonts; }
+headline_font() { cp -rf $INSTALLER/custom/hf/*ttf $INSTALLER/system/fonts; }
+body_font() { cp -rf $INSTALLER/custom/bf/*ttf $INSTALLER/system/fonts; }
+condensed_font() { cp -rf $INSTALLER/custom/cf/*ttf $INSTALLER/system/fonts; }
 full_font() { headline_font; body_font; condensed_font; }
-alternative_font() { cp -rf $INSTALLER/custom/alt/* $INSTALLER/system/fonts; }
-original_font() { cp -rf $INSTALLER/custom/orig/* $INSTALLER/system/fonts; }
-font_xml() { cp -rf $INSTALLER/custom/xml/* $INSTALLER/system/; }
+alternative_font() { cp -rf $INSTALLER/custom/alt/*ttf $INSTALLER/system/fonts; }
+original_font() { cp -rf $INSTALLER/custom/orig/*ttf $INSTALLER/system/fonts; }
+font_xml() { cp -rf $INSTALLER/custom/xml/*xml $INSTALLER/system/etc; }
 custom_font() { cp -rf $INSTALLER/custom/system/* $INSTALLER/system/; }
 
 ### SELECTIONS ###
