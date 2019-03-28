@@ -8,6 +8,8 @@ Italic GS-NoRef
 Scale-h86-PSB Bold-h8 BR-105 LSBat0  
 Import otlfd-Scale-GO-h86  
 Merge RobotoCN-1000-NoRef  
+Light GSv2-Light-10 Weight-Light  
+Merge RobotoCN-1000-NoRef-Thin-10  
 Full-Unicode-Encoding  
 Fix otlfd  
 Underline=-118 TypoAscender=1000  
