@@ -96,5 +96,5 @@ if [ -n "$(ls -A $INSTALLER/custom/system)" ]; then
 	ui_print "- Copying custom files"
 	custom_font; sed -ie 3's/$/-cust&/' $INSTALLER/module.prop
 fi
-ui_print "_______________________________________________"
+ui_print "_____________________________________________________"
 ui_print " "
