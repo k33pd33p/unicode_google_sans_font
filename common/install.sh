@@ -1,25 +1,27 @@
-headline_font() { cp -Rv $INSTALLER/custom/hf/* $INSTALLER/system/fonts; }
-body_font() { cp -Rv $INSTALLER/custom/bf/* $INSTALLER/system/fonts; }
-condensed_font() { cp -Rv $INSTALLER/custom/cf/* $INSTALLER/system/fonts; }
+headline_font() { cp -rf $INSTALLER/custom/hf/* $INSTALLER/system/fonts; }
+body_font() { cp -rf $INSTALLER/custom/bf/* $INSTALLER/system/fonts; }
+condensed_font() { cp -rf $INSTALLER/custom/cf/* $INSTALLER/system/fonts; }
 full_font() { headline_font; body_font; condensed_font; }
-alternative_font() { cp -Rv $INSTALLER/custom/alt/* $INSTALLER/system/fonts; }
-original_font() { cp -Rv $INSTALLER/custom/orig/* $INSTALLER/system/fonts; }
-font_xml() { cp -Rv $INSTALLER/custom/xml/* $INSTALLER/system/; }
-custom_font() { cp -Rv $INSTALLER/custom/system/* $INSTALLER/system/; }
+alternative_font() { cp -rf $INSTALLER/custom/alt/* $INSTALLER/system/fonts; }
+original_font() { cp -rf $INSTALLER/custom/orig/* $INSTALLER/system/fonts; }
+font_xml() { cp -rf $INSTALLER/custom/xml/* $INSTALLER/system/; }
+custom_font() { cp -rf $INSTALLER/custom/system/* $INSTALLER/system/; }
 
-# 1st selection ---------------------------------------- 
+### SELECTIONS ###
+
 PART=1
+ui_print "_____________________________________________________"
 ui_print " "
-ui_print "- Which part of the system font do you want to replace?"
-ui_print "  Vol+ = Select; Vol- = Ok"
+ui_print "Which part of the system font do you want to replace?"
+ui_print "Vol+ = Select; Vol- = Ok"
 ui_print " "
-ui_print "  1. Full"
-ui_print "  2. Headline"
-ui_print "  3. Headline/Body"
+ui_print "1. Full"
+ui_print "2. Headline"
+ui_print "3. Headline/Body"
 ui_print " "
-ui_print "  Select:"
+ui_print "Select:"
 while true; do
-	ui_print "  $PART"
+	ui_print "$PART"
 	if $VKSEL; then
 		PART=$((PART + 1))
 	else 
@@ -30,22 +32,22 @@ while true; do
 	fi
 done
 ui_print " "
-ui_print "  Selected: $PART"
+ui_print "Selected: $PART"
 
-# 2nd selection ---------------------------------------- 
 VER=1
 if [ $PART -ne 2 ]; then
+	ui_print "_____________________________________________________"
 	ui_print " "
-	ui_print "- Which version do you want to install?"
-	ui_print "  Vol+ = Select; Vol- = OK"
+	ui_print "Which version do you want to install?"
+	ui_print "Vol+ = Select; Vol- = OK"
 	ui_print " "
-	ui_print "  1. Default"
-	ui_print "  2. Alternative"
-	ui_print "  3. Original"
+	ui_print "1. Default"
+	ui_print "2. Alternative"
+	ui_print "3. Original"
 	ui_print " "
-	ui_print "  Select:"
+	ui_print "Select:"
 	while true; do
-		ui_print "  $VER"
+		ui_print "$VER"
 		if $VKSEL; then
 			VER=$((VER + 1))
 		else 
@@ -56,23 +58,24 @@ if [ $PART -ne 2 ]; then
 		fi
 	done
 	ui_print " "
-	ui_print "  Selected: $VER"
+	ui_print "Selected: $VER"
 fi
 
-# 3rd selection ---------------------------------------- 
 XML=false
+ui_print "_____________________________________________________"
 ui_print " "
-ui_print "- Include fontxml?"
-ui_print "  Vol+ = Yes; Vol- = No/Not Sure"
+ui_print "Include fontxml?"
+ui_print "Vol+ = Yes; Vol- = No/Not Sure"
 ui_print " "
 if $VKSEL; then
 	XML=true	
-	ui_print "  Selected: Yes"
+	ui_print "Selected: Yes"
 else
-	ui_print "  Selected: No"	
+	ui_print "Selected: No"	
 fi
 
-# installation  ---------------------------------------- 
+### INSTALLATION ###
+
 case $PART in
 	1 ) full_font;;
 	2 ) headline_font; sed -ie 3's/$/-hf&/' $INSTALLER/module.prop;;
@@ -91,7 +94,7 @@ fi
 if [ -n "$(ls -A $INSTALLER/custom/system)" ]; then
 	ui_print " "
 	ui_print "- Copying custom files"
-	cust; sed -ie 3's/$/-cust&/' $INSTALLER/module.prop
+	custom_font; sed -ie 3's/$/-cust&/' $INSTALLER/module.prop
 fi
-
+ui_print "_______________________________________________"
 ui_print " "
