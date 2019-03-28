@@ -12,7 +12,7 @@ custom_font() { cp -rf $INSTALLER/custom/system/* $INSTALLER/system/; }
 PART=1
 ui_print "_____________________________________________________"
 ui_print " "
-ui_print "Which part of the system font do you want to replace?"
+ui_print "Which PART of the system font do you want to replace?"
 ui_print "Vol+ = Select; Vol- = Ok"
 ui_print " "
 ui_print "1. Full"
@@ -38,7 +38,7 @@ VER=1
 if [ $PART -ne 2 ]; then
 	ui_print "_____________________________________________________"
 	ui_print " "
-	ui_print "Which version do you want to install?"
+	ui_print "Which VERSION do you want to install?"
 	ui_print "Vol+ = Select; Vol- = OK"
 	ui_print " "
 	ui_print "1. Default"
