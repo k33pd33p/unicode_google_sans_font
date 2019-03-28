@@ -1,11 +1,11 @@
-hf () { cp -R $INSTALLER/custom/hf/* $INSTALLER/system/fonts; }
-bf () { cp -R $INSTALLER/custom/bf/* $INSTALLER/system/fonts; }
-cf () { cp -R $INSTALLER/custom/cf/* $INSTALLER/system/fonts; }
-full () { hf; bf; cf; }
-alt () { cp -R $INSTALLER/custom/alt/* $INSTALLER/system/fonts; }
-orig () { cp -R $INSTALLER/custom/orig/* $INSTALLER/system/fonts; }
-xml () { cp -R $INSTALLER/custom/xml/* $INSTALLER/system/; }
-cust () { cp -R $INSTALLER/custom/system/* $INSTALLER/system/; }
+headline_font() { cp -Rv $INSTALLER/custom/hf/* $INSTALLER/system/fonts; }
+body_font() { cp -Rv $INSTALLER/custom/bf/* $INSTALLER/system/fonts; }
+condensed_font() { cp -Rv $INSTALLER/custom/cf/* $INSTALLER/system/fonts; }
+full_font() { headline_font; body_font; condensed_font; }
+alternative_font() { cp -Rv $INSTALLER/custom/alt/* $INSTALLER/system/fonts; }
+original_font() { cp -Rv $INSTALLER/custom/orig/* $INSTALLER/system/fonts; }
+font_xml() { cp -Rv $INSTALLER/custom/xml/* $INSTALLER/system/; }
+custom_font() { cp -Rv $INSTALLER/custom/system/* $INSTALLER/system/; }
 
 # 1st selection ---------------------------------------- 
 PART=1
@@ -34,7 +34,7 @@ ui_print "  Selected: $PART"
 
 # 2nd selection ---------------------------------------- 
 VER=1
-if [ $PART != 2 ]; then
+if [ $PART -ne 2 ]; then
 	ui_print " "
 	ui_print "- Which version do you want to install?"
 	ui_print "  Vol+ = Select; Vol- = OK"
@@ -74,18 +74,18 @@ fi
 
 # installation  ---------------------------------------- 
 case $PART in
-	1 ) full;;
-	2 ) hf; sed -ie 3's/$/-hf&/' $INSTALLER/module.prop;;
-	3 ) hf; bf; sed -ie 3's/$/-hbf&/' $INSTALLER/module.prop;;
+	1 ) full_font;;
+	2 ) headline_font; sed -ie 3's/$/-hf&/' $INSTALLER/module.prop;;
+	3 ) headline_font; body_font; sed -ie 3's/$/-hbf&/' $INSTALLER/module.prop;;
 esac
 
 case $VER in
-	2 ) alt; sed -ie 3's/$/-alt&/' $INSTALLER/module.prop;;
-	3 ) orig; sed -ie 3's/$/-orig&/' $INSTALLER/module.prop;;
+	2 ) alternative_font; sed -ie 3's/$/-alt&/' $INSTALLER/module.prop;;
+	3 ) original_font; sed -ie 3's/$/-orig&/' $INSTALLER/module.prop;;
 esac
 
 if $XML; then
-	xml; sed -ie 3's/$/-xml&/' $INSTALLER/module.prop;
+	font_xml; sed -ie 3's/$/-xml&/' $INSTALLER/module.prop;
 fi
 
 if [ -n "$(ls -A $INSTALLER/custom/system)" ]; then
