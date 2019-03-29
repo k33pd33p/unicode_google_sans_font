@@ -1,11 +1,11 @@
-headline_font() { cp -rf $INSTALLER/custom/hf/*ttf $INSTALLER/system/fonts; }
-body_font() { cp -rf $INSTALLER/custom/bf/*ttf $INSTALLER/system/fonts; }
-condensed_font() { cp -rf $INSTALLER/custom/cf/*ttf $INSTALLER/system/fonts; }
+headline_font() { cp -rf $TMPDIR/custom/hf/*ttf $TMPDIR/system/fonts; }
+body_font() { cp -rf $TMPDIR/custom/bf/*ttf $TMPDIR/system/fonts; }
+condensed_font() { cp -rf $TMPDIR/custom/cf/*ttf $TMPDIR/system/fonts; }
 full_font() { headline_font; body_font; condensed_font; }
-alternative_font() { cp -rf $INSTALLER/custom/alt/*ttf $INSTALLER/system/fonts; }
-original_font() { cp -rf $INSTALLER/custom/orig/*ttf $INSTALLER/system/fonts; }
-font_xml() { cp -rf $INSTALLER/custom/xml/*xml $INSTALLER/system/etc; }
-custom_font() { cp -rf $INSTALLER/custom/system/* $INSTALLER/system/; }
+alternative_font() { cp -rf $TMPDIR/custom/alt/*ttf $TMPDIR/system/fonts; }
+original_font() { cp -rf $TMPDIR/custom/orig/*ttf $TMPDIR/system/fonts; }
+font_xml() { cp -rf $TMPDIR/custom/xml/*xml $TMPDIR/system/etc; }
+custom_font() { cp -rf $TMPDIR/custom/system/* $TMPDIR/system/; }
 
 ### SELECTIONS ###
 
@@ -78,23 +78,23 @@ fi
 
 case $PART in
 	1 ) full_font;;
-	2 ) headline_font; sed -ie 3's/$/-hf&/' $INSTALLER/module.prop;;
-	3 ) headline_font; body_font; sed -ie 3's/$/-hbf&/' $INSTALLER/module.prop;;
+	2 ) headline_font; sed -ie 3's/$/-hf&/' $TMPDIR/module.prop;;
+	3 ) headline_font; body_font; sed -ie 3's/$/-hbf&/' $TMPDIR/module.prop;;
 esac
 
 case $VER in
-	2 ) alternative_font; sed -ie 3's/$/-alt&/' $INSTALLER/module.prop;;
-	3 ) original_font; sed -ie 3's/$/-orig&/' $INSTALLER/module.prop;;
+	2 ) alternative_font; sed -ie 3's/$/-alt&/' $TMPDIR/module.prop;;
+	3 ) original_font; sed -ie 3's/$/-orig&/' $TMPDIR/module.prop;;
 esac
 
 if $XML; then
-	font_xml; sed -ie 3's/$/-xml&/' $INSTALLER/module.prop;
+	font_xml; sed -ie 3's/$/-xml&/' $TMPDIR/module.prop;
 fi
 
-if [ -n "$(ls -A $INSTALLER/custom/system)" ]; then
+if [ -n "$(ls -A $TMPDIR/custom/system)" ]; then
 	ui_print " "
 	ui_print "- Copying custom files"
-	custom_font; sed -ie 3's/$/-cust&/' $INSTALLER/module.prop
+	custom_font; sed -ie 3's/$/-cust&/' $TMPDIR/module.prop
 fi
 ui_print "_____________________________________________________"
 ui_print " "
