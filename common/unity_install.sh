@@ -1,3 +1,5 @@
+find $TMPDIR -type f -name "placeholder" -exec rm -rf {} +
+
 headline_font() { cp -rf $TMPDIR/custom/hf/*ttf $TMPDIR/system/fonts; }
 body_font() { cp -rf $TMPDIR/custom/bf/*ttf $TMPDIR/system/fonts; }
 condensed_font() { cp -rf $TMPDIR/custom/cf/*ttf $TMPDIR/system/fonts; }
