@@ -6,7 +6,7 @@
 [![xda](https://img.shields.io/badge/XDA-Thread-orange.svg)](https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349) 
 
 ## Description
-This is NOT only a custom font. This is a SYSTEM font. The font is not Google Sans nor Roboto. It's GoogleSans-Roboto.  
+This is NOT only a custom font. This is a SYSTEM font. The font is not Google Sans nor Roboto. It's Google Sans - Roboto.  
 Everything works as it should. Just install it and enjoy!
 
 ## Features
