@@ -20,9 +20,10 @@ A flashable zip of Google Sans font. Everything works as it should. Just install
 Choose a version that suits you best:
 - **Full:** all 20+ styles
 - **Headline:** only change headline font
-- **Headline/Body:** only change headline/body font
+- **Headline/Body:** only change headline + body font
 - **Alternative:** + more readable
 - **fontxml:** the system font configuration of android pie, may be needed on some roms.
+- **custom**: put your custom files in /custom/system/ (ex. /custom/system/fonts/Roboto-Regular.ttf)
 
 ## Thanks
 - [Unity (Un)Installer Template](https://github.com/Zackptg5/Unity)
