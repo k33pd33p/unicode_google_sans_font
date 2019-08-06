@@ -1,8 +1,8 @@
 # Unicode Google Sans Font
 **Android system font Google Sans**
 
-![version](https://img.shields.io/badge/Version-4.1.4-brightgreen.svg) 
-![update](https://img.shields.io/badge/Update-Jun_4,_2019-blue.svg) 
+![version](https://img.shields.io/badge/Version-5.0.0-brightgreen.svg) 
+![update](https://img.shields.io/badge/Update-Aug_8,_2019-blue.svg) 
 [![xda](https://img.shields.io/badge/XDA-Thread-orange.svg)](https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349) 
 
 ## Description
