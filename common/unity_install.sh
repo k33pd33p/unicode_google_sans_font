@@ -4,7 +4,7 @@ condensed_font() { cp -rf $TMPDIR/custom/cf/*ttf $TMPDIR/system/fonts; }
 full_font() { headline_font; body_font; condensed_font; }
 alternative_font() { cp -rf $TMPDIR/custom/alt/*ttf $TMPDIR/system/fonts; }
 original_font() { cp -rf $TMPDIR/custom/orig/*ttf $TMPDIR/system/fonts; }
-font_xml() { cp -rf $TMPDIR/custom/xml/*xml $TMPDIR/system/etc; }
+# font_xml() { cp -rf $TMPDIR/custom/xml/*xml $TMPDIR/system/etc; }
 custom_font() { cp -rf $TMPDIR/custom/system/* $TMPDIR/system/; }
 
 ### SELECTIONS ###
@@ -59,17 +59,17 @@ if [ $PART -ne 2 ]; then
 	ui_print "  Selected: $VER"
 fi
 
-XML=false
-ui_print "   "
-ui_print "- Include fontxml?"
-ui_print "  Vol+ = Yes; Vol- = No/Not Sure"
-ui_print "   "
-if $VKSEL; then
-	XML=true	
-	ui_print "  Selected: Yes"
-else
-	ui_print "  Selected: No"	
-fi
+# XML=false
+# ui_print "   "
+# ui_print "- Include fontxml?"
+# ui_print "  Vol+ = Yes; Vol- = No/Not Sure"
+# ui_print "   "
+# if $VKSEL; then
+	# XML=true	
+	# ui_print "  Selected: Yes"
+# else
+	# ui_print "  Selected: No"	
+# fi
 
 ### INSTALLATION ###
 mkdir -p $TMPDIR/system/fonts $TMPDIR/system/etc
@@ -85,9 +85,9 @@ case $VER in
 	3 ) original_font; sed -ie 3's/$/-orig&/' $TMPDIR/module.prop;;
 esac
 
-if $XML; then
-	font_xml; sed -ie 3's/$/-xml&/' $TMPDIR/module.prop;
-fi
+# if $XML; then
+#	font_xml; sed -ie 3's/$/-xml&/' $TMPDIR/module.prop;
+# fi
 
 if [ -d $TMPDIR/custom/system ]; then
 	ui_print "   "
