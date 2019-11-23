@@ -7,6 +7,20 @@ original_font() { cp -rf $TMPDIR/custom/orig/*ttf $TMPDIR/system/fonts; }
 # font_xml() { cp -rf $TMPDIR/custom/xml/*xml $TMPDIR/system/etc; }
 custom_font() { cp -rf $TMPDIR/custom/system/* $TMPDIR/system/; }
 
+oxygen() {
+	cp $TMPDIR/system/fonts/Roboto-Black.ttf $TMPDIR/system/fonts/SlateForOnePlus-Black.ttf;
+	cp $TMPDIR/system/fonts/Roboto-Bold.ttf $TMPDIR/system/fonts/SlateForOnePlus-Bold.ttf;
+	cp $TMPDIR/system/fonts/Roboto-Medium.ttf $TMPDIR/system/fonts/SlateForOnePlus-Medium.ttf;
+	cp $TMPDIR/system/fonts/Roboto-Regular.ttf $TMPDIR/system/fonts/SlateForOnePlus-Regular.ttf;
+	cp $TMPDIR/system/fonts/Roboto-Regular.ttf $TMPDIR/system/fonts/SlateForOnePlus-Book.ttf;
+	cp $TMPDIR/system/fonts/Roboto-Light.ttf $TMPDIR/system/fonts/SlateForOnePlus-Light.ttf;
+	cp $TMPDIR/system/fonts/Roboto-Thin.ttf $TMPDIR/system/fonts/SlateForOnePlus-Thin.ttf;
+}
+
+miui() {
+	cp $TMPDIR/system/fonts/Roboto-Regular.ttf $TMPDIR/system/fonts/MiLanProVF.ttf;
+}
+
 ### SELECTIONS ###
 
 PART=1
@@ -59,6 +73,30 @@ if [ $PART -ne 2 ]; then
 	ui_print "  Selected: $VER"
 fi
 
+ROM=1
+ui_print "   "
+ui_print "- Which ROM are you using?"
+ui_print "  Vol+ = Select; Vol- = Ok"
+ui_print "   "
+ui_print "  1. AOSP"
+ui_print "  2. Oxygen OS"
+ui_print "  3. MIUI 11"
+ui_print "   "
+ui_print "  Select:"
+while true; do
+	ui_print "  $ROM"
+	if $VKSEL; then
+		ROM=$((ROM + 1))
+	else 
+		break
+	fi
+	if [ $ROM -gt 3 ]; then
+		ROM=1
+	fi
+done
+ui_print "   "
+ui_print "  Selected: $ROM"
+
 # XML=false
 # ui_print "   "
 # ui_print "- Include fontxml?"
@@ -82,12 +120,17 @@ esac
 
 case $VER in
 	2 ) alternative_font; sed -ie 3's/$/-alt&/' $TMPDIR/module.prop;;
-	3 ) original_font; sed -ie 3's/$/-orig&/' $TMPDIR/module.prop;;
+	3 ) original_font; sed -ie 3's/$/-ori&/' $TMPDIR/module.prop;;
 esac
 
 # if $XML; then
 #	font_xml; sed -ie 3's/$/-xml&/' $TMPDIR/module.prop;
 # fi
+
+case $ROM in
+	2 ) oxygen; sed -ie 3's/$/-oos&/' $TMPDIR/module.prop;;
+	3 ) miui; sed -ie 3's/$/-mi&/' $TMPDIR/module.prop;;
+esac
 
 if [ -d $TMPDIR/custom/system ]; then
 	ui_print "   "
