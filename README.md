@@ -23,7 +23,7 @@ Choose a version that suits you best:
 - **Headline/Body:** only change headline + body font
 - **Alternative:** + more readable
 - **fontxml:** the system font configuration of android pie, may be needed on some roms.
-- **custom**: put your custom files in /custom/system/ (ex. /custom/system/fonts/Roboto-Regular.ttf)
+- **custom**: put your custom files in /custom/system/ (e.g. /custom/system/fonts/Roboto-Regular.ttf)
 
 ## Thanks
 - [Unity (Un)Installer Template](https://github.com/Zackptg5/Unity)
