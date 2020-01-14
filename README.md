@@ -24,7 +24,6 @@ Replace the default system font (i.e. Roboto) with Google Sans.
 ![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/p.png)
 
 ## Installation
-Choose a version that suits you best:
 - **Full:** 20 styles
 - **Headline:** only change headline font
 - **Headline/Body:** only change headline + body font
