@@ -1,8 +1,8 @@
 # Unicode Google Sans Font
 **Google Sans font for Android**
 
-![version](https://img.shields.io/badge/Version-5.1.0-brightgreen.svg) 
-![updated](https://img.shields.io/badge/Update-Jan_12,_2020-blue.svg) 
+![version](https://img.shields.io/badge/Version-6.0.0-brightgreen.svg) 
+![updated](https://img.shields.io/badge/Update-Jan_15,_2020-blue.svg) 
 [![forum](https://img.shields.io/badge/Forum-XDA-orange.svg)](https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349) 
 [![download](https://img.shields.io/badge/Download-↓-blueviolet.svg)](https://github.com/nongthaihoang/unicode_google_sans_font/releases)
 
@@ -10,11 +10,10 @@
 Replace the default system font (i.e. Roboto) with Google Sans.
 
 ## Features
-- Newest version of GS v2.003 from Android 10.
-- Included glyphs from Roboto to make sure there is no boxes (i.e. missing special characters)
-- Over 20 font styles to provide smooth experience from day to day usage.
-- Magisk and TWRP are both supported.
-- Provide selections (i.e styles, OS, headline) through installation so you can choose what suits you best.
+- Based on GS v2.004 from Android 10.
+- Included glyphs from Roboto to make sure there is no boxes (aka missing glyphs).
+- Over 20 font styles providing smooth experience for daily use.
+- Provide selections (i.e styles, OS) through installation so you can choose what suits you best.
 
 ## Previews
 ![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/g.png)
@@ -26,7 +25,7 @@ Replace the default system font (i.e. Roboto) with Google Sans.
 
 ## Installation
 Choose a version that suits you best:
-- **Full:** all 20+ styles
+- **Full:** 20 styles
 - **Headline:** only change headline font
 - **Headline/Body:** only change headline + body font
 - **Alternative:** bolder, more readable
