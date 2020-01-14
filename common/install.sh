@@ -24,10 +24,10 @@ miui() {
 	cp -rf $MODPATH/custom/xml/fonts.xml.mi $MODPATH/system/etc/fonts.xml;
 }
 
-samsung() {
-	cp -rf $MODPATH/system/fonts/Roboto-Regular.ttf $MODPATH/system/fonts/RobotoNum-3L.ttf;
-	cp -rf $MODPATH/system/fonts/Roboto-Bold.ttf $MODPATH/system/fonts/RobotoNum-3R.ttf;
-}
+# samsung() {
+	# cp -rf $MODPATH/system/fonts/Roboto-Light.ttf $MODPATH/system/fonts/RobotoNum-3L.ttf;
+	# cp -rf $MODPATH/system/fonts/Roboto-Regular.ttf $MODPATH/system/fonts/RobotoNum-3R.ttf;
+# }
 
 ### SELECTIONS ###
 
@@ -90,7 +90,7 @@ ui_print "   "
 ui_print "  1. AOSP"
 ui_print "  2. Oxygen OS"
 ui_print "  3. MIUI 11"
-ui_print "  4. Samsung"
+# ui_print "  4. Samsung"
 # ui_print "  5. Pixel"
 ui_print "   "
 ui_print "  Select:"
@@ -101,7 +101,7 @@ while true; do
 	else 
 		break
 	fi
-	if [ $ROM -gt 4 ]; then
+	if [ $ROM -gt 3 ]; then
 		ROM=1
 	fi
 done
@@ -110,7 +110,7 @@ ui_print "  Selected: $ROM"
 
 XML=false
 ui_print "   "
-ui_print "- Use Android default font references?"
+ui_print "- Use Android default font reference?"
 ui_print "  Vol+ = Yes; Vol- = No"
 ui_print "   "
 if $VKSEL; then
@@ -138,7 +138,7 @@ esac
 case $ROM in
 	2 ) oxygen; sed -ie 3's/$/-oos&/' $MODPATH/module.prop;;
 	3 ) miui; sed -ie 3's/$/-mi&/' $MODPATH/module.prop;;
-	4 ) samsung; sed -ie 3's/$/-ss&/' $MODPATH/module.prop;;
+	# 4 ) samsung; sed -ie 3's/$/-ss&/' $MODPATH/module.prop;;
 	# 5 ) pixel; sed -ie 3's/$/-px&/' $MODPATH/module.prop;;
 esac
 
