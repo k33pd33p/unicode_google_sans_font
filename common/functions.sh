@@ -152,8 +152,8 @@ prop_process() {
 }
 
 # Check for min/max api version
-[ -z $MINAPI ] || { [ $API -lt $MINAPI ] && abort "! Your system API of $API is less than the minimum api of $i! Aborting!"; }
-[ -z $MAXAPI ] || { [ $API -gt $MAXAPI ] && abort "! Your system API of $API is greater than the maximum api of $i! Aborting!"; }
+[ -z $MINAPI ] || { [ $API -lt $MINAPI ] && abort "! Your system API of $API is less than the minimum api of $MINAPI! Aborting!"; }
+[ -z $MAXAPI ] || { [ $API -gt $MAXAPI ] && abort "! Your system API of $API is greater than the maximum api of $MAXAPI! Aborting!"; }
 
 # Set variables
 [ $API -lt 26 ] && DYNLIB=false
@@ -245,7 +245,10 @@ if $DYNLIB; then
     esac
     mkdir -p $(dirname $MODPATH/system/vendor/$FILE)
     mv -f $MODPATH/system/$FILE $MODPATH/system/vendor/$FILE
+    [ "$(ls -A `dirname $MODPATH/system/$FILE`)" ] || rm -rf `dirname $MODPATH/system/$FILE`
   done
+  # Delete empty lib folders (busybox find doesn't have this capability)
+  toybox find $MODPATH/system/lib* -type d -empty -delete 2>/dev/null
 fi
 
 # Set permissions
