@@ -8,8 +8,18 @@ original() { cp -rf $MODPATH/custom/ori/*ttf $MODPATH/system/fonts; }
 bolder() { cp -rf $MODPATH/custom/bd/*ttf $MODPATH/system/fonts; }
 xml() { cp -rf $MODPATH/custom/xml/fonts.xml $MODPATH/system/etc; }
 custom() { cp -rf $MODPATH/custom/system/* $MODPATH/system/; }
+cleanup() {
+	rm -rf $MODPATH/custom
+	rmdir -p $MODPATH/system/etc $MODPATH/system/product/fonts
+}
 
-pixel() { cp -rf $MODPATH/custom/px/*ttf $MODPATH/system/product/fonts; }
+pixel() {
+	if [ $API -gt 28 ]; then
+		cp -rf $MODPATH/custom/px/*ttf $MODPATH/system/product/fonts
+	else 
+		cp -rf $MODPATH/custom/px/*ttf $MODPATH/system/fonts
+	fi
+}
 
 oxygen() {
 	cp -rf $MODPATH/system/fonts/Roboto-Black.ttf $MODPATH/system/fonts/SlateForOnePlus-Black.ttf;
@@ -93,7 +103,7 @@ ui_print "  1. AOSP/LOS"
 ui_print "  2. Oxygen OS"
 ui_print "  3. MIUI 11"
 # ui_print "  4. Samsung"
-# ui_print "  5. Pixel"
+ui_print "  4. Pixel"
 ui_print "   "
 ui_print "  Select:"
 while true; do
@@ -103,7 +113,7 @@ while true; do
 	else 
 		break
 	fi
-	if [ $ROM -gt 3 ]; then
+	if [ $ROM -gt 4 ]; then
 		ROM=1
 	fi
 done
@@ -142,7 +152,7 @@ case $ROM in
 	2 ) oxygen; sed -ie 3's/$/-oos&/' $MODPATH/module.prop;;
 	3 ) miui; sed -ie 3's/$/-mi&/' $MODPATH/module.prop;;
 	# 4 ) samsung; sed -ie 3's/$/-ss&/' $MODPATH/module.prop;;
-	# 5 ) pixel; sed -ie 3's/$/-px&/' $MODPATH/module.prop;;
+	4 ) pixel; sed -ie 3's/$/-px&/' $MODPATH/module.prop;;
 esac
 
 if $XML; then
@@ -158,6 +168,6 @@ fi
 ### CLEAN UP ###
 ui_print "   "
 ui_print "- Cleaning up"
-rm -rf $MODPATH/custom
+cleanup
 
 ui_print "   "
