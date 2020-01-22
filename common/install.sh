@@ -1,7 +1,7 @@
 FONTDIR=$MODPATH/custom
 SYSFONT=$MODPATH/system/fonts
 PRDFONT=$MODPATH/system/product/fonts
-XML=$MODPATH/system/etc
+SYSXML=$MODPATH/system/etc
 MODPROP=$MODPATH/module.prop
 
 headline() { cp -rf $FONTDIR/hf/*ttf $SYSFONT; }
@@ -12,12 +12,12 @@ alternative() { cp -rf $FONTDIR/alt/*ttf $SYSFONT; }
 text() { cp -rf $FONTDIR/txt/*ttf $SYSFONT; }
 original() { cp -rf $FONTDIR/ori/*ttf $SYSFONT; }
 bolder() { cp -rf $FONTDIR/bd/*ttf $SYSFONT; }
-xml() { cp -rf $FONTDIR/xml/fonts.xml $XML; }
+xml() { cp -rf $FONTDIR/xml/fonts.xml $SYSXML; }
 custom() { cp -rf $FONTDIR/system/* $MODPATH/system; }
 
 cleanup() {
 	rm -rf $FONTDIR
-	rmdir -p $XML $PRDFONT
+	rmdir -p $SYSXML $PRDFONT
 }
 
 pixel() {
@@ -39,7 +39,7 @@ oxygen() {
 }
 
 miui() {
-	cp -rf $FONTDIR/xml/fonts.xml.mi $XML/fonts.xml;
+	cp -rf $FONTDIR/xml/fonts.xml.mi $SYSXML/fonts.xml;
 }
 
 # samsung() {
@@ -140,7 +140,7 @@ else
 fi
 
 ### INSTALLATION ###
-mkdir -p $SYSFONT $XML $PRDFONT
+mkdir -p $SYSFONT $SYSXML $PRDFONT
 
 case $WHERE in
 	1 ) full;;
