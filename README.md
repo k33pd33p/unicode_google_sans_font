@@ -5,7 +5,7 @@
 ![updated](https://img.shields.io/badge/Updated-Jan_24,_2020-green.svg) 
 [![forum](https://img.shields.io/badge/Forum-XDA-orange.svg)](https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349) 
 [![download](https://img.shields.io/badge/Download-↓-yellow.svg)](https://github.com/nongthaihoang/unicode_google_sans_font/releases)
-[![donate](https://img.shields.io/badge/Donate-Paypal-blue.svg)](paypal.me/nongthaihoang)
+[![donate](https://img.shields.io/badge/Donate-Paypal-blue.svg)](http://paypal.me/nongthaihoang)
  
 ## Description
 Replace the default system font (i.e. Roboto) with Google Sans.
