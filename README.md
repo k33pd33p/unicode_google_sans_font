@@ -16,12 +16,12 @@ Replace the default system font (i.e. Roboto) with Google Sans.
 - Provide selections (i.e styles, OS) through installation so you can choose what suits you best.
 
 ## Previews
-![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/g.png)
-![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/h.png)
-![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/b.png)
-![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/c.png)
-![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/u.png)
-![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/p.png)
+![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/gs1.png)
+![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/gs2.png)
+![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/gs3.png)
+![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/gs4.png)
+![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/gs5.png)
+![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/gs6.png)
 
 ## Installation
 - **Full:** 20 styles
