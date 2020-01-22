@@ -1,43 +1,50 @@
-headline() { cp -rf $MODPATH/custom/hf/*ttf $MODPATH/system/fonts; }
-body() { cp -rf $MODPATH/custom/bf/*ttf $MODPATH/system/fonts; }
-condensed() { cp -rf $MODPATH/custom/cf/*ttf $MODPATH/system/fonts; }
+FONTDIR=$MODPATH/custom
+SYSFONT=$MODPATH/system/fonts
+PRDFONT=$MODPATH/system/product/fonts
+XML=$MODPATH/system/etc
+MODPROP=$MODPATH/module.prop
+
+headline() { cp -rf $FONTDIR/hf/*ttf $SYSFONT; }
+body() { cp -rf $FONTDIR/bf/*ttf $SYSFONT; }
+condensed() { cp -rf $FONTDIR/cf/*ttf $SYSFONT; }
 full() { headline; body; condensed; }
-alternative() { cp -rf $MODPATH/custom/alt/*ttf $MODPATH/system/fonts; }
-text() { cp -rf $MODPATH/custom/txt/*ttf $MODPATH/system/fonts; }
-original() { cp -rf $MODPATH/custom/ori/*ttf $MODPATH/system/fonts; }
-bolder() { cp -rf $MODPATH/custom/bd/*ttf $MODPATH/system/fonts; }
-xml() { cp -rf $MODPATH/custom/xml/fonts.xml $MODPATH/system/etc; }
-custom() { cp -rf $MODPATH/custom/system/* $MODPATH/system/; }
+alternative() { cp -rf $FONTDIR/alt/*ttf $SYSFONT; }
+text() { cp -rf $FONTDIR/txt/*ttf $SYSFONT; }
+original() { cp -rf $FONTDIR/ori/*ttf $SYSFONT; }
+bolder() { cp -rf $FONTDIR/bd/*ttf $SYSFONT; }
+xml() { cp -rf $FONTDIR/xml/fonts.xml $XML; }
+custom() { cp -rf $FONTDIR/system/* $MODPATH/system; }
+
 cleanup() {
-	rm -rf $MODPATH/custom
-	rmdir -p $MODPATH/system/etc $MODPATH/system/product/fonts
+	rm -rf $FONTDIR
+	rmdir -p $XML $PRDFONT
 }
 
 pixel() {
 	if [ $API -gt 28 ]; then
-		cp -rf $MODPATH/custom/px/*ttf $MODPATH/system/product/fonts
+		cp -rf $FONTDIR/px/*ttf $PRDFONT
 	else 
-		cp -rf $MODPATH/custom/px/*ttf $MODPATH/system/fonts
+		cp -rf $FONTDIR/px/*ttf $SYSFONT
 	fi
 }
 
 oxygen() {
-	cp -rf $MODPATH/system/fonts/Roboto-Black.ttf $MODPATH/system/fonts/SlateForOnePlus-Black.ttf;
-	cp -rf $MODPATH/system/fonts/Roboto-Bold.ttf $MODPATH/system/fonts/SlateForOnePlus-Bold.ttf;
-	cp -rf $MODPATH/system/fonts/Roboto-Medium.ttf $MODPATH/system/fonts/SlateForOnePlus-Medium.ttf;
-	cp -rf $MODPATH/system/fonts/Roboto-Regular.ttf $MODPATH/system/fonts/SlateForOnePlus-Regular.ttf;
-	cp -rf $MODPATH/system/fonts/Roboto-Regular.ttf $MODPATH/system/fonts/SlateForOnePlus-Book.ttf;
-	cp -rf $MODPATH/system/fonts/Roboto-Light.ttf $MODPATH/system/fonts/SlateForOnePlus-Light.ttf;
-	cp -rf $MODPATH/system/fonts/Roboto-Thin.ttf $MODPATH/system/fonts/SlateForOnePlus-Thin.ttf;
+	cp -rf $SYSFONT/Roboto-Black.ttf $SYSFONT/SlateForOnePlus-Black.ttf;
+	cp -rf $SYSFONT/Roboto-Bold.ttf $SYSFONT/SlateForOnePlus-Bold.ttf;
+	cp -rf $SYSFONT/Roboto-Medium.ttf $SYSFONT/SlateForOnePlus-Medium.ttf;
+	cp -rf $SYSFONT/Roboto-Regular.ttf $SYSFONT/SlateForOnePlus-Regular.ttf;
+	cp -rf $SYSFONT/Roboto-Regular.ttf $SYSFONT/SlateForOnePlus-Book.ttf;
+	cp -rf $SYSFONT/Roboto-Light.ttf $SYSFONT/SlateForOnePlus-Light.ttf;
+	cp -rf $SYSFONT/Roboto-Thin.ttf $SYSFONT/SlateForOnePlus-Thin.ttf;
 }
 
 miui() {
-	cp -rf $MODPATH/custom/xml/fonts.xml.mi $MODPATH/system/etc/fonts.xml;
+	cp -rf $FONTDIR/xml/fonts.xml.mi $XML/fonts.xml;
 }
 
 # samsung() {
-	# cp -rf $MODPATH/system/fonts/Roboto-Light.ttf $MODPATH/system/fonts/RobotoNum-3L.ttf;
-	# cp -rf $MODPATH/system/fonts/Roboto-Regular.ttf $MODPATH/system/fonts/RobotoNum-3R.ttf;
+	# cp -rf $SYSFONT/Roboto-Light.ttf $SYSFONT/RobotoNum-3L.ttf;
+	# cp -rf $SYSFONT/Roboto-Regular.ttf $SYSFONT/RobotoNum-3R.ttf;
 # }
 
 ### SELECTIONS ###
@@ -133,36 +140,36 @@ else
 fi
 
 ### INSTALLATION ###
-mkdir -p $MODPATH/system/fonts $MODPATH/system/etc $MODPATH/system/product/fonts
+mkdir -p $SYSFONT $XML $PRDFONT
 
 case $WHERE in
 	1 ) full;;
-	2 ) headline; sed -ie 3's/$/-hf&/' $MODPATH/module.prop;;
-	3 ) headline; body; sed -ie 3's/$/-hbf&/' $MODPATH/module.prop;;
+	2 ) headline; sed -ie 3's/$/-hf&/' $MODPROP;;
+	3 ) headline; body; sed -ie 3's/$/-hbf&/' $MODPROP;;
 esac
 
 case $STYLE in
-	2 ) alternative; sed -ie 3's/$/-alt&/' $MODPATH/module.prop;;
-	3 ) text; sed -ie 3's/$/-txt&/' $MODPATH/module.prop;;
-	4 ) original; sed -ie 3's/$/-ori&/' $MODPATH/module.prop;;
-	5 ) bolder; sed -ie 3's/$/-bd&/' $MODPATH/module.prop;;
+	2 ) alternative; sed -ie 3's/$/-alt&/' $MODPROP;;
+	3 ) text; sed -ie 3's/$/-txt&/' $MODPROP;;
+	4 ) original; sed -ie 3's/$/-ori&/' $MODPROP;;
+	5 ) bolder; sed -ie 3's/$/-bd&/' $MODPROP;;
 esac
 
 case $ROM in
-	2 ) oxygen; sed -ie 3's/$/-oos&/' $MODPATH/module.prop;;
-	3 ) miui; sed -ie 3's/$/-mi&/' $MODPATH/module.prop;;
-	# 4 ) samsung; sed -ie 3's/$/-ss&/' $MODPATH/module.prop;;
-	4 ) pixel; sed -ie 3's/$/-px&/' $MODPATH/module.prop;;
+	2 ) oxygen; sed -ie 3's/$/-oos&/' $MODPROP;;
+	3 ) miui; sed -ie 3's/$/-mi&/' $MODPROP;;
+	# 4 ) samsung; sed -ie 3's/$/-ss&/' $MODPROP;;
+	4 ) pixel; sed -ie 3's/$/-px&/' $MODPROP;;
 esac
 
 if $XML; then
-	xml; sed -ie 3's/$/-xml&/' $MODPATH/module.prop;
+	xml; sed -ie 3's/$/-xml&/' $MODPROP;
 fi
 
-if [ -d $MODPATH/custom/system ]; then
+if [ -d $FONTDIR/system ]; then
 	ui_print "   "
 	ui_print "- Copying custom files"
-	custom; sed -ie 3's/$/-cust&/' $MODPATH/module.prop
+	custom; sed -ie 3's/$/-cust&/' $MODPROP
 fi
 
 ### CLEAN UP ###
