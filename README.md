@@ -23,6 +23,7 @@ Replace the default system font (i.e. Roboto) with Google Sans.
 ![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/gs4.png)
 ![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/gs5.png)
 ![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/gs6.png)
+![img](https://raw.githubusercontent.com/nongthaihoang/gs_images/master/gs7.png)
 
 ## Installation
 - **Full:** 20 styles
