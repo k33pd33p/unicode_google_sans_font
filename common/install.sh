@@ -1,50 +1,82 @@
 FONTDIR=$MODPATH/custom
 SYSFONT=$MODPATH/system/fonts
 PRDFONT=$MODPATH/system/product/fonts
-SYSXML=$MODPATH/system/etc
+SYSETC=$MODPATH/system/etc
+SYSXML=$SYSETC/fonts.xml
 MODPROP=$MODPATH/module.prop
 
-headline() { cp -rf $FONTDIR/hf/*ttf $SYSFONT; }
-body() { cp -rf $FONTDIR/bf/*ttf $SYSFONT; }
-condensed() { cp -rf $FONTDIR/cf/*ttf $SYSFONT; }
+headline() { cp $FONTDIR/hf/*ttf $SYSFONT; }
+body() { cp $FONTDIR/bf/*ttf $SYSFONT; }
+condensed() { cp $FONTDIR/cf/*ttf $SYSFONT; }
 full() { headline; body; condensed; }
-alternative() { cp -rf $FONTDIR/alt/*ttf $SYSFONT; }
-text() { cp -rf $FONTDIR/txt/*ttf $SYSFONT; }
-original() { cp -rf $FONTDIR/ori/*ttf $SYSFONT; }
-bolder() { cp -rf $FONTDIR/bd/*ttf $SYSFONT; }
-xml() { cp -rf $FONTDIR/xml/fonts.xml $SYSXML; }
+alternative() { cp $FONTDIR/alt/*ttf $SYSFONT; }
+text() { cp $FONTDIR/txt/*ttf $SYSFONT; }
+original() { cp $FONTDIR/ori/*ttf $SYSFONT; }
+bolder() { cp $FONTDIR/bd/*ttf $SYSFONT; }
+tnum() { cp $FONTDIR/bf/tnum/*ttf $SYSFONT; }
+xml() { cp $FONTDIR/xml/fonts.xml $SYSXML; }
 custom() { cp -rf $FONTDIR/system/* $MODPATH/system; }
 
 cleanup() {
 	rm -rf $FONTDIR
-	rmdir -p $SYSXML $PRDFONT
+	rmdir -p $SYSETC $PRDFONT
 }
 
 pixel() {
 	if [ $API -gt 28 ]; then
-		cp -rf $FONTDIR/px/*ttf $PRDFONT
+		cp $FONTDIR/px/*ttf $PRDFONT
 	else 
-		cp -rf $FONTDIR/px/*ttf $SYSFONT
+		cp $FONTDIR/px/*ttf $SYSFONT
 	fi
 }
 
 oxygen() {
-	cp -rf $SYSFONT/Roboto-Black.ttf $SYSFONT/SlateForOnePlus-Black.ttf;
-	cp -rf $SYSFONT/Roboto-Bold.ttf $SYSFONT/SlateForOnePlus-Bold.ttf;
-	cp -rf $SYSFONT/Roboto-Medium.ttf $SYSFONT/SlateForOnePlus-Medium.ttf;
-	cp -rf $SYSFONT/Roboto-Regular.ttf $SYSFONT/SlateForOnePlus-Regular.ttf;
-	cp -rf $SYSFONT/Roboto-Regular.ttf $SYSFONT/SlateForOnePlus-Book.ttf;
-	cp -rf $SYSFONT/Roboto-Light.ttf $SYSFONT/SlateForOnePlus-Light.ttf;
-	cp -rf $SYSFONT/Roboto-Thin.ttf $SYSFONT/SlateForOnePlus-Thin.ttf;
+	cp $SYSFONT/Roboto-Black.ttf $SYSFONT/SlateForOnePlus-Black.ttf;
+	cp $SYSFONT/Roboto-Bold.ttf $SYSFONT/SlateForOnePlus-Bold.ttf;
+	cp $SYSFONT/Roboto-Medium.ttf $SYSFONT/SlateForOnePlus-Medium.ttf;
+	cp $SYSFONT/Roboto-Regular.ttf $SYSFONT/SlateForOnePlus-Regular.ttf;
+	cp $SYSFONT/Roboto-Regular.ttf $SYSFONT/SlateForOnePlus-Book.ttf;
+	cp $SYSFONT/Roboto-Light.ttf $SYSFONT/SlateForOnePlus-Light.ttf;
+	cp $SYSFONT/Roboto-Thin.ttf $SYSFONT/SlateForOnePlus-Thin.ttf;
 }
 
 miui() {
-	cp -rf $FONTDIR/xml/fonts.xml.mi $SYSXML/fonts.xml;
+	umount /system/etc/fonts.xml 
+	cp /system/etc/fonts.xml $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Regular/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Bold/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Thin/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Light/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Light/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Regular/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Regular/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Medium/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Medium/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Bold/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Regular/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Bold/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Thin/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Light/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Thin/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Light/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Light/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Regular/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Light/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Regular/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Regular/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Medium/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Medium/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Bold/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Medium/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Bold/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Medium/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Bold/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Bold/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Black/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Black/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
 }
 
 # samsung() {
-	# cp -rf $SYSFONT/Roboto-Light.ttf $SYSFONT/RobotoNum-3L.ttf;
-	# cp -rf $SYSFONT/Roboto-Regular.ttf $SYSFONT/RobotoNum-3R.ttf;
 # }
 
 ### SELECTIONS ###
@@ -73,8 +105,9 @@ done
 ui_print "   "
 ui_print "  Selected: $WHERE"
 
-STYLE=1
+STYLE=0
 if [ $WHERE -ne 2 ]; then
+	STYLE=1
 	ui_print "   "
 	ui_print "- Which STYLE?"
 	ui_print "  Vol+ = Select; Vol- = OK"
@@ -99,6 +132,20 @@ if [ $WHERE -ne 2 ]; then
 	done
 	ui_print "   "
 	ui_print "  Selected: $STYLE"
+fi
+
+TNUM=false
+if [ $STYLE -eq 1 ]; then
+	ui_print "   "
+	ui_print "- Tabular Figures?"
+	ui_print "  Vol+ = Yes; Vol- = No/Absolutely Not"
+	ui_print "   "
+	if $VKSEL; then
+		TNUM=true	
+		ui_print "  Selected: Yes"
+	else
+		ui_print "  Selected: No"	
+	fi
 fi
 
 ROM=1
@@ -140,7 +187,7 @@ else
 fi
 
 ### INSTALLATION ###
-mkdir -p $SYSFONT $SYSXML $PRDFONT
+mkdir -p $SYSFONT $SYSETC $PRDFONT
 
 case $WHERE in
 	1 ) full;;
@@ -161,6 +208,10 @@ case $ROM in
 	# 4 ) samsung; sed -ie 3's/$/-ss&/' $MODPROP;;
 	4 ) pixel; sed -ie 3's/$/-px&/' $MODPROP;;
 esac
+
+if $TNUM; then
+	tnum; sed -ie 3's/$/-tnum&/' $MODPROP;
+fi
 
 if $XML; then
 	xml; sed -ie 3's/$/-xml&/' $MODPROP;
