@@ -202,16 +202,16 @@ case $STYLE in
 	5 ) bolder; sed -ie 3's/$/-bd&/' $MODPROP;;
 esac
 
+if $TNUM; then
+	tnum; sed -ie 3's/$/-tnum&/' $MODPROP;
+fi
+
 case $ROM in
 	2 ) oxygen; sed -ie 3's/$/-oos&/' $MODPROP;;
 	3 ) miui; sed -ie 3's/$/-mi&/' $MODPROP;;
 	# 4 ) samsung; sed -ie 3's/$/-ss&/' $MODPROP;;
 	4 ) pixel; sed -ie 3's/$/-px&/' $MODPROP;;
 esac
-
-if $TNUM; then
-	tnum; sed -ie 3's/$/-tnum&/' $MODPROP;
-fi
 
 if $XML; then
 	xml; sed -ie 3's/$/-xml&/' $MODPROP;
