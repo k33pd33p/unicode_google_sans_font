@@ -102,7 +102,7 @@ miui() {
 
 WHERE=1
 ui_print "   "
-ui_print "- WHERE to install?"
+ui_print "- WHERE to Install?"
 ui_print "  Vol+ = Select; Vol- = Ok"
 ui_print "   "
 ui_print "  1. Full"
@@ -170,7 +170,7 @@ fi
 TXTHF=false
 if [ $STYLE -eq 3 ]; then
 	ui_print "   "
-	ui_print "- Style Text For Headline?"
+	ui_print "- Style Text for Headline?"
 	ui_print "  Vol+ = Yes; Vol- = No/Only Body + Condensed"
 	ui_print "   "
 	if $VKSEL; then
