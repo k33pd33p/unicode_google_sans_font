@@ -10,7 +10,13 @@ body() { cp $FONTDIR/bf/*ttf $SYSFONT; }
 condensed() { cp $FONTDIR/cf/*ttf $SYSFONT; }
 full() { headline; body; condensed; }
 alternative() { cp $FONTDIR/alt/*ttf $SYSFONT; }
-text() { cp $FONTDIR/txt/*ttf $SYSFONT; }
+text() {
+	cp $FONTDIR/txt/bf/*ttf $SYSFONT
+	cp $FONTDIR/txt/cf/*ttf $SYSFONT
+	if $TXTHF; then
+		cp $FONTDIR/txt/hf/*ttf $SYSFONT
+	fi
+}
 original() { cp $FONTDIR/ori/*ttf $SYSFONT; }
 bolder() { cp $FONTDIR/bd/*ttf $SYSFONT; }
 tnum() { cp $FONTDIR/bf/tnum/*ttf $SYSFONT; }
@@ -23,10 +29,19 @@ cleanup() {
 }
 
 pixel() {
-	if [ $API -gt 28 ]; then
-		cp $FONTDIR/px/*ttf $PRDFONT
-	else 
-		cp $FONTDIR/px/*ttf $SYSFONT
+	DEST=$PRDFONT
+	if [ $API -lt 29 ]; then
+		DEST=$SYSFONT
+	fi
+	if $TXTHF; then
+		cp $SYSFONT/Roboto-Regular.ttf $DEST/GoogleSans-Regular.ttf
+		cp $SYSFONT/Roboto-Italic.ttf $DEST/GoogleSans-Italic.ttf
+		cp $SYSFONT/Roboto-Medium.ttf $DEST/GoogleSans-Medium.ttf
+		cp $SYSFONT/Roboto-MediumItalic.ttf $DEST/GoogleSans-MediumItalic.ttf
+		cp $SYSFONT/Roboto-Bold.ttf $DEST/GoogleSans-Bold.ttf
+		cp $SYSFONT/Roboto-BoldItalic.ttf $DEST/GoogleSans-BoldItalic.ttf
+	else
+		cp $FONTDIR/px/*ttf $DEST
 	fi
 }
 
@@ -41,39 +56,43 @@ oxygen() {
 }
 
 miui() {
-	umount /system/etc/fonts.xml 
+	umount /system/etc/fonts.xml
 	cp /system/etc/fonts.xml $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Regular/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Bold/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Thin/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Light/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Light/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Regular/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Regular/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Medium/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Medium/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Bold/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Regular/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Bold/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Thin/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Light/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Thin/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Light/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Light/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Regular/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Light/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Regular/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Regular/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Medium/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Medium/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Bold/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Medium/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Bold/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Medium/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Bold/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Bold/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Black/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
-	sed -i '1,/MiLanProVF/s/MiLanProVF/Roboto-Black/' $SYSXML; sed -i '1,/stylevalue/{/stylevalue/d}' $SYSXML
+	if i=$(grep miui $SYSXML); then
+		sed -i '/\"miui\"/,/stylevalue/{s/MiLanProVF/Roboto-Regular/;/stylevalue/d}' $SYSXML
+		sed -i '/\"miui\"/,/stylevalue/{s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
+		sed -i '/\"miui-thin\"/,/stylevalue/{s/MiLanProVF/Roboto-Thin/;/stylevalue/d}' $SYSXML
+		sed -i '/\"miui-thin\"/,/stylevalue/{s/MiLanProVF/Roboto-Light/;/stylevalue/d}' $SYSXML
+		sed -i '/\"miui-light\"/,/stylevalue/{s/MiLanProVF/Roboto-Light/;/stylevalue/d}' $SYSXML
+		sed -i '/\"miui-light\"/,/stylevalue/{s/MiLanProVF/Roboto-Regular/;/stylevalue/d}' $SYSXML
+		sed -i '/\"miui-regular\"/,/stylevalue/{s/MiLanProVF/Roboto-Regular/;/stylevalue/d}' $SYSXML
+		sed -i '/\"miui-regular\"/,/stylevalue/{s/MiLanProVF/Roboto-Medium/;/stylevalue/d}' $SYSXML
+		sed -i '/\"miui-bold\"/,/stylevalue/{s/MiLanProVF/Roboto-Medium/;/stylevalue/d}' $SYSXML
+		sed -i '/\"miui-bold\"/,/stylevalue/{s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro\"/,/stylevalue/{s/MiLanProVF/Roboto-Regular/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro\"/,/stylevalue/{s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-thin\"/,/stylevalue/{s/MiLanProVF/Roboto-Thin/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-thin\"/,/stylevalue/{s/MiLanProVF/Roboto-Light/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-extralight\"/,/stylevalue/{s/MiLanProVF/Roboto-Thin/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-extralight\"/,/stylevalue/{s/MiLanProVF/Roboto-Light/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-light\"/,/stylevalue/{s/MiLanProVF/Roboto-Light/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-light\"/,/stylevalue/{s/MiLanProVF/Roboto-Regular/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-normal\"/,/stylevalue/{s/MiLanProVF/Roboto-Light/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-normal\"/,/stylevalue/{s/MiLanProVF/Roboto-Regular/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-regular\"/,/stylevalue/{s/MiLanProVF/Roboto-Regular/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-regular\"/,/stylevalue/{s/MiLanProVF/Roboto-Medium/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-medium\"/,/stylevalue/{s/MiLanProVF/Roboto-Medium/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-medium\"/,/stylevalue/{s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-demibold\"/,/stylevalue/{s/MiLanProVF/Roboto-Medium/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-demibold\"/,/stylevalue/{s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-semibold\"/,/stylevalue/{s/MiLanProVF/Roboto-Medium/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-semibold\"/,/stylevalue/{s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-bold\"/,/stylevalue/{s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-bold\"/,/stylevalue/{s/MiLanProVF/Roboto-Black/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-heavy\"/,/stylevalue/{s/MiLanProVF/Roboto-Black/;/stylevalue/d}' $SYSXML
+	else
+		rm $SYSXML
+	fi
 }
 
 # samsung() {
@@ -148,6 +167,20 @@ if [ $STYLE -eq 1 ]; then
 	fi
 fi
 
+TXTHF=false
+if [ $STYLE -eq 3 ]; then
+	ui_print "   "
+	ui_print "- Style Text For Headline?"
+	ui_print "  Vol+ = Yes; Vol- = No/Only Body + Condensed"
+	ui_print "   "
+	if $VKSEL; then
+		TXTHF=true	
+		ui_print "  Selected: Yes"
+	else
+		ui_print "  Selected: No"	
+	fi
+fi
+
 ROM=1
 ui_print "   "
 ui_print "- ROM?"
@@ -176,7 +209,7 @@ ui_print "  Selected: $ROM"
 
 XML=false
 ui_print "   "
-ui_print "- Use Android default font reference?"
+ui_print "- Use Android Default Font Reference?"
 ui_print "  Vol+ = Yes; Vol- = No/Not Sure"
 ui_print "   "
 if $VKSEL; then
@@ -187,6 +220,9 @@ else
 fi
 
 ### INSTALLATION ###
+ui_print "   "
+ui_print "- Installing"
+
 mkdir -p $SYSFONT $SYSETC $PRDFONT
 
 case $WHERE in

@@ -1,8 +1,8 @@
 # Unicode Google Sans Font
 **Google Sans font for Android**
 
-![version](https://img.shields.io/badge/Version-6.2.0-brightgreen.svg) 
-![updated](https://img.shields.io/badge/Updated-Feb_4,_2020-green.svg) 
+![version](https://img.shields.io/badge/Version-6.3.0-brightgreen.svg) 
+![updated](https://img.shields.io/badge/Updated-Feb_6,_2020-green.svg) 
 [![forum](https://img.shields.io/badge/Forum-XDA-orange.svg)](https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349) 
 [![download](https://img.shields.io/badge/Download-↓-yellow.svg)](https://github.com/nongthaihoang/unicode_google_sans_font/releases)
 [![donate](https://img.shields.io/badge/Donate-Paypal-blue.svg)](https://paypal.me/nongthaihoang)
