@@ -19,7 +19,7 @@ text() {
 }
 original() { cp $FONTDIR/ori/*ttf $SYSFONT; }
 bolder() { cp $FONTDIR/bd/*ttf $SYSFONT; }
-tnum() { cp $FONTDIR/bf/tnum/*ttf $SYSFONT; }
+# tnum() { cp $FONTDIR/bf/tnum/*ttf $SYSFONT; }
 xml() { cp $FONTDIR/xml/fonts.xml $SYSXML; }
 custom() { cp -rf $FONTDIR/system/* $MODPATH/system; }
 
@@ -59,37 +59,22 @@ miui() {
 	umount /system/etc/fonts.xml
 	cp /system/etc/fonts.xml $SYSXML
 	if i=$(grep miui $SYSXML); then
-		sed -i '/\"miui\"/,/stylevalue/{s/MiLanProVF/Roboto-Regular/;/stylevalue/d}' $SYSXML
-		sed -i '/\"miui\"/,/stylevalue/{s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
-		sed -i '/\"miui-thin\"/,/stylevalue/{s/MiLanProVF/Roboto-Thin/;/stylevalue/d}' $SYSXML
-		sed -i '/\"miui-thin\"/,/stylevalue/{s/MiLanProVF/Roboto-Light/;/stylevalue/d}' $SYSXML
-		sed -i '/\"miui-light\"/,/stylevalue/{s/MiLanProVF/Roboto-Light/;/stylevalue/d}' $SYSXML
-		sed -i '/\"miui-light\"/,/stylevalue/{s/MiLanProVF/Roboto-Regular/;/stylevalue/d}' $SYSXML
-		sed -i '/\"miui-regular\"/,/stylevalue/{s/MiLanProVF/Roboto-Regular/;/stylevalue/d}' $SYSXML
-		sed -i '/\"miui-regular\"/,/stylevalue/{s/MiLanProVF/Roboto-Medium/;/stylevalue/d}' $SYSXML
-		sed -i '/\"miui-bold\"/,/stylevalue/{s/MiLanProVF/Roboto-Medium/;/stylevalue/d}' $SYSXML
-		sed -i '/\"miui-bold\"/,/stylevalue/{s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro\"/,/stylevalue/{s/MiLanProVF/Roboto-Regular/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro\"/,/stylevalue/{s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-thin\"/,/stylevalue/{s/MiLanProVF/Roboto-Thin/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-thin\"/,/stylevalue/{s/MiLanProVF/Roboto-Light/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-extralight\"/,/stylevalue/{s/MiLanProVF/Roboto-Thin/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-extralight\"/,/stylevalue/{s/MiLanProVF/Roboto-Light/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-light\"/,/stylevalue/{s/MiLanProVF/Roboto-Light/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-light\"/,/stylevalue/{s/MiLanProVF/Roboto-Regular/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-normal\"/,/stylevalue/{s/MiLanProVF/Roboto-Light/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-normal\"/,/stylevalue/{s/MiLanProVF/Roboto-Regular/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-regular\"/,/stylevalue/{s/MiLanProVF/Roboto-Regular/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-regular\"/,/stylevalue/{s/MiLanProVF/Roboto-Medium/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-medium\"/,/stylevalue/{s/MiLanProVF/Roboto-Medium/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-medium\"/,/stylevalue/{s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-demibold\"/,/stylevalue/{s/MiLanProVF/Roboto-Medium/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-demibold\"/,/stylevalue/{s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-semibold\"/,/stylevalue/{s/MiLanProVF/Roboto-Medium/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-semibold\"/,/stylevalue/{s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-bold\"/,/stylevalue/{s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-bold\"/,/stylevalue/{s/MiLanProVF/Roboto-Black/;/stylevalue/d}' $SYSXML
-		sed -i '/\"mipro-heavy\"/,/stylevalue/{s/MiLanProVF/Roboto-Black/;/stylevalue/d}' $SYSXML
+		sed -i '/\"miui\"/,/family>/{/400/,/>/s/MiLanProVF/Roboto-Regular/;/700/,/>/s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
+		sed -i '/\"miui-thin\"/,/family>/{/400/,/>/s/MiLanProVF/Roboto-Thin/;/700/,/>/s/MiLanProVF/Roboto-Light/;/stylevalue/d}' $SYSXML
+		sed -i '/\"miui-light\"/,/family>/{/400/,/>/s/MiLanProVF/Roboto-Light/;/700/,/>/s/MiLanProVF/Roboto-Regular/;/stylevalue/d}' $SYSXML
+		sed -i '/\"miui-regular\"/,/family>/{/400/,/>/s/MiLanProVF/Roboto-Regular/;/700/,/>/s/MiLanProVF/Roboto-Medium/;/stylevalue/d}' $SYSXML
+		sed -i '/\"miui-bold\"/,/family>/{/400/,/>/s/MiLanProVF/Roboto-Medium/;/700/,/>/s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro\"/,/family>/{/400/,/>/s/MiLanProVF/Roboto-Regular/;/700/,/>/s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-thin\"/,/family>/{/400/,/>/s/MiLanProVF/Roboto-Thin/;/700/,/>/s/MiLanProVF/Roboto-Light/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-extralight\"/,/family>/{/400/,/>/s/MiLanProVF/Roboto-Thin/;/700/,/>/s/MiLanProVF/Roboto-Light/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-light\"/,/family>/{/400/,/>/s/MiLanProVF/Roboto-Light/;/700/,/>/s/MiLanProVF/Roboto-Regular/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-normal\"/,/family>/{/400/,/>/s/MiLanProVF/Roboto-Light/;/700/,/>/s/MiLanProVF/Roboto-Regular/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-regular\"/,/family>/{/400/,/>/s/MiLanProVF/Roboto-Regular/;/700/,/>/s/MiLanProVF/Roboto-Medium/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-medium\"/,/family>/{/400/,/>/s/MiLanProVF/Roboto-Medium/;/700/,/>/s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-demibold\"/,/family>/{/400/,/>/s/MiLanProVF/Roboto-Medium/;/700/,/>/s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-semibold\"/,/family>/{/400/,/>/s/MiLanProVF/Roboto-Medium/;/700/,/>/s/MiLanProVF/Roboto-Bold/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-bold\"/,/family>/{/400/,/>/s/MiLanProVF/Roboto-Bold/;/700/,/>/s/MiLanProVF/Roboto-Black/;/stylevalue/d}' $SYSXML
+		sed -i '/\"mipro-heavy\"/,/family>/{/400/,/>/s/MiLanProVF/Roboto-Black/;/stylevalue/d}' $SYSXML
 	else
 		rm $SYSXML
 	fi
@@ -100,9 +85,14 @@ miui() {
 
 ### SELECTIONS ###
 
-WHERE=1
+PART=1
 ui_print "   "
-ui_print "- WHERE to Install?"
+ui_print "  ====================================================="
+ui_print "  Font can be installed only for headline (bold text)  "
+ui_print "  or body (regular text) or full (system wide).        "
+ui_print "  ====================================================="
+ui_print "   "
+ui_print "- What do you want install this font for?"
 ui_print "  Vol+ = Select; Vol- = Ok"
 ui_print "   "
 ui_print "  1. Full"
@@ -111,24 +101,30 @@ ui_print "  3. Headline/Body"
 ui_print "   "
 ui_print "  Select:"
 while true; do
-	ui_print "  $WHERE"
+	ui_print "  $PART"
 	if $VKSEL; then
-		WHERE=$((WHERE + 1))
+		PART=$((PART + 1))
 	else 
 		break
 	fi
-	if [ $WHERE -gt 3 ]; then
-		WHERE=1
+	if [ $PART -gt 3 ]; then
+		PART=1
 	fi
 done
 ui_print "   "
-ui_print "  Selected: $WHERE"
+ui_print "  Selected: $PART"
 
 STYLE=0
-if [ $WHERE -ne 2 ]; then
+if [ $PART -ne 2 ]; then
 	STYLE=1
 	ui_print "   "
-	ui_print "- Which STYLE?"
+	ui_print "  ====================================================="
+	ui_print "  Body font is what you see the most. You don't need to"
+	ui_print "  know the differences between these styles. Just try  "
+	ui_print "  each one until you find the most comfortable.        "
+	ui_print "  ====================================================="
+	ui_print "   "
+	ui_print "- Which body font style do you like?"
 	ui_print "  Vol+ = Select; Vol- = OK"
 	ui_print "   "
 	ui_print "  1. Default"
@@ -153,24 +149,29 @@ if [ $WHERE -ne 2 ]; then
 	ui_print "  Selected: $STYLE"
 fi
 
-TNUM=false
-if [ $STYLE -eq 1 ]; then
-	ui_print "   "
-	ui_print "- Tabular Figures?"
-	ui_print "  Vol+ = Yes; Vol- = No/Absolutely Not"
-	ui_print "   "
-	if $VKSEL; then
-		TNUM=true	
-		ui_print "  Selected: Yes"
-	else
-		ui_print "  Selected: No"	
-	fi
-fi
+# TNUM=false
+# if [ $STYLE -eq 1 ]; then
+# 	ui_print "   "
+# 	ui_print "- Tabular Figures?"
+# 	ui_print "  Vol+ = Yes; Vol- = No/Absolutely Not"
+# 	ui_print "   "
+# 	if $VKSEL; then
+# 		TNUM=true	
+# 		ui_print "  Selected: Yes"
+# 	else
+# 		ui_print "  Selected: No"	
+# 	fi
+# fi
 
 TXTHF=false
 if [ $STYLE -eq 3 ]; then
 	ui_print "   "
-	ui_print "- Style Text for Headline?"
+	ui_print "  ====================================================="
+	ui_print "  By default a body style is only applied to body text."
+	ui_print "  Choose Yes if you want it system wide.               "
+	ui_print "  ====================================================="
+	ui_print "   "
+	ui_print "- Also use the selected style for headline?"
 	ui_print "  Vol+ = Yes; Vol- = No/Only Body + Condensed"
 	ui_print "   "
 	if $VKSEL; then
@@ -183,7 +184,14 @@ fi
 
 ROM=1
 ui_print "   "
-ui_print "- ROM?"
+ui_print "  ====================================================="
+ui_print "  If your default system font is Roboto, choose 1. For "
+ui_print "  OOS the SlateForOnePlus font will also be replaced.  "
+ui_print "  Choose MIUI if MiLanPro is the default font. Pixel   "
+ui_print "  is for ROMs that have Google Sans font.              "
+ui_print "  ====================================================="
+ui_print "   "
+ui_print "- Which ROM/OS are you using?"
 ui_print "  Vol+ = Select; Vol- = Ok"
 ui_print "   "
 ui_print "  1. AOSP/LOS"
@@ -209,8 +217,14 @@ ui_print "  Selected: $ROM"
 
 XML=false
 ui_print "   "
+ui_print "  ====================================================="
+ui_print "  This is the default fonts.xml file from Android Q.   "
+ui_print "  If your system font does not change, try enable this "
+ui_print "  option may help.                                     "
+ui_print "  ====================================================="
+ui_print "   "
 ui_print "- Use Android Default Font Reference?"
-ui_print "  Vol+ = Yes; Vol- = No/Not Sure"
+ui_print "  Vol+ = Yes; Vol- = No/Don't Know"
 ui_print "   "
 if $VKSEL; then
 	XML=true	
@@ -225,7 +239,7 @@ ui_print "- Installing"
 
 mkdir -p $SYSFONT $SYSETC $PRDFONT
 
-case $WHERE in
+case $PART in
 	1 ) full;;
 	2 ) headline; sed -ie 3's/$/-hf&/' $MODPROP;;
 	3 ) headline; body; sed -ie 3's/$/-hbf&/' $MODPROP;;
@@ -238,9 +252,9 @@ case $STYLE in
 	5 ) bolder; sed -ie 3's/$/-bd&/' $MODPROP;;
 esac
 
-if $TNUM; then
-	tnum; sed -ie 3's/$/-tnum&/' $MODPROP;
-fi
+# if $TNUM; then
+# 	tnum; sed -ie 3's/$/-tnum&/' $MODPROP;
+# fi
 
 case $ROM in
 	2 ) oxygen; sed -ie 3's/$/-oos&/' $MODPROP;;
@@ -260,6 +274,12 @@ if [ -d $FONTDIR/system ]; then
 fi
 
 ### CLEAN UP ###
+ui_print "   "
+ui_print "  ====================================================="
+ui_print "  The installation is completed. If you want to change "
+ui_print "  any settings just reflash the zip then reboot to see "
+ui_print "  changes.                                             "
+ui_print "  ====================================================="
 ui_print "   "
 ui_print "- Cleaning up"
 cleanup
