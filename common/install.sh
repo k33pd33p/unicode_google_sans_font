@@ -223,7 +223,7 @@ ui_print "  If your system font does not change, try enable this "
 ui_print "  option may help.                                     "
 ui_print "  ====================================================="
 ui_print "   "
-ui_print "- Use Android Default Font Reference?"
+ui_print "- Use Android default font reference?"
 ui_print "  Vol+ = Yes; Vol- = No/Don't Know"
 ui_print "   "
 if $VKSEL; then
