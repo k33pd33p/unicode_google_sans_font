@@ -30,7 +30,7 @@ cleanup() {
 
 pixel() {
 	DEST=$PRDFONT
-	if [ $API -lt 29 ]; then
+	if [ -f $SYSFONT/GoogleSans-Regular.ttf ]; then
 		DEST=$SYSFONT
 	fi
 	if $TXTHF; then
