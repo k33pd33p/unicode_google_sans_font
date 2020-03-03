@@ -1,7 +1,7 @@
 id=unigsfont
 name=Unicode Google Sans Font
-version=v6.4.2-EOL
-versionCode=642
+version=v6.5.0-EOL
+versionCode=650
 author=nongthaihoang
 description=Change system font to Google Sans.
 support=https://forum.xda-developers.com/apps/magisk/font-headline-fonts-nongthaihoang-t3886349
