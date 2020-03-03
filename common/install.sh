@@ -19,6 +19,17 @@ text() {
 }
 original() { cp $FONTDIR/ori/*ttf $SYSFONT; }
 bolder() { cp $FONTDIR/bd/*ttf $SYSFONT; }
+legible() {
+	DEST=$FONTDIR/bf/hl
+	if [ $STYLE -eq 2 ]; then
+		DEST=$FONTDIR/alt/hl
+	elif [ $STYLE -eq 4 ]; then
+		DEST=$FONTDIR/ori/hl
+	elif [ $STYLE -eq 5 ]; then
+		DEST=$FONTDIR/bd/hl
+	fi
+	cp $DEST/*ttf $SYSFONT;
+}
 xml() { cp $FONTDIR/xml/fonts.xml $SYSXML; }
 custom() { cp -rf $FONTDIR/system/* $MODPATH/system; }
 
@@ -164,6 +175,20 @@ if [ $STYLE -eq 3 ]; then
 	fi
 fi
 
+HL=false
+if [ $STYLE -ne 3 ]; then
+	ui_print "   "
+	ui_print "- Enable high legibility feature for body text?"
+	ui_print "  Vol+ = Yes; Vol- = No"
+	ui_print "   "
+	if $VKSEL; then
+		HL=true	
+		ui_print "  Selected: Yes"
+	else
+		ui_print "  Selected: No"	
+	fi
+fi
+
 ROM=1
 ui_print "   "
 ui_print "  ====================================================="
@@ -232,6 +257,11 @@ case $STYLE in
 	4 ) original; sed -ie 3's/$/-ori&/' $MODPROP;;
 	5 ) bolder; sed -ie 3's/$/-bd&/' $MODPROP;;
 esac
+
+
+if $HL; then
+	legible; sed -ie 3's/$/-hl&/' $MODPROP;
+fi
 
 case $ROM in
 	2 ) oxygen; sed -ie 3's/$/-oos&/' $MODPROP;;
