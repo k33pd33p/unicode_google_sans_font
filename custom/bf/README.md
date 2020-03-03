@@ -5,4 +5,4 @@ Regular Rep-arrows-SW-SE Del-(chi-grek)
 Rep Nodef-Space
 Colon.center.case
 case otf
-I!=l Move-TopRight-v40
+I!=l Move-TopRight-v30
