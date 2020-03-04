@@ -17,6 +17,7 @@ text() {
 }
 original() { cp $FONTDIR/ori/*ttf $SYSFONT; }
 bolder() { cp $FONTDIR/bd/*ttf $SYSFONT; }
+mono() { cp $FONTDIR/mo/*ttf $SYSFONT; }
 legible() {
 	DEST=$FONTDIR/bf/hl
 	if [ $STYLE -eq 2 ]; then
@@ -193,6 +194,18 @@ if [ $PART -ne 2 ]; then
 	fi
 fi
 
+MONO=false
+ui_print "   "
+ui_print "- Install additional monospaced font?"
+ui_print "  Vol+ = Yes; Vol- = No"
+ui_print "   "
+if $VKSEL; then
+	MONO=true	
+	ui_print "  Selected: Yes"
+else
+	ui_print "  Selected: No"	
+fi
+
 ROM=1
 ui_print "   "
 ui_print "  ====================================================="
@@ -269,6 +282,10 @@ esac
 
 if $HL; then
 	legible; sed -ie 3's/$/-hl&/' $MODPROP;
+fi
+
+if $MONO; then
+	mono; sed -ie 3's/$/-mo&/' $MODPROP;
 fi
 
 case $ROM in
