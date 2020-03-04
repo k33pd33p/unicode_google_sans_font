@@ -17,7 +17,7 @@ text() {
 }
 original() { cp $FONTDIR/ori/*ttf $SYSFONT; }
 bolder() { cp $FONTDIR/bd/*ttf $SYSFONT; }
-mono() { cp $FONTDIR/mo/*ttf $SYSFONT; }
+# mono() { cp $FONTDIR/mo/*ttf $SYSFONT; }
 legible() {
 	DEST=$FONTDIR/bf/hl
 	if [ $STYLE -eq 2 ]; then
@@ -44,7 +44,7 @@ pixel() {
 	fi
 	if [ $HFSTYLE -eq 2 ]; then
 		cp $FONTDIR/txt/bf/Roboto-Regular.ttf $DEST/GoogleSans-Regular.ttf
-		cp $SYSFONT/Roboto-Italic.ttf $DEST/GoogleSans-Italic.ttf
+		cp $SYSFONT/txt/bf/Roboto-Italic.ttf $DEST/GoogleSans-Italic.ttf
 		cp $SYSFONT/Roboto-Medium.ttf $DEST/GoogleSans-Medium.ttf
 		cp $SYSFONT/Roboto-MediumItalic.ttf $DEST/GoogleSans-MediumItalic.ttf
 		cp $SYSFONT/Roboto-Bold.ttf $DEST/GoogleSans-Bold.ttf
@@ -194,17 +194,17 @@ if [ $PART -ne 2 ]; then
 	fi
 fi
 
-MONO=false
-ui_print "   "
-ui_print "- Install additional monospaced font?"
-ui_print "  Vol+ = Yes; Vol- = No"
-ui_print "   "
-if $VKSEL; then
-	MONO=true	
-	ui_print "  Selected: Yes"
-else
-	ui_print "  Selected: No"	
-fi
+# MONO=false
+# ui_print "   "
+# ui_print "- Install additional monospaced font?"
+# ui_print "  Vol+ = Yes; Vol- = No"
+# ui_print "   "
+# if $VKSEL; then
+	# MONO=true	
+	# ui_print "  Selected: Yes"
+# else
+	# ui_print "  Selected: No"	
+# fi
 
 ROM=1
 ui_print "   "
@@ -284,9 +284,9 @@ if $HL; then
 	legible; sed -ie 3's/$/-hl&/' $MODPROP;
 fi
 
-if $MONO; then
-	mono; sed -ie 3's/$/-mo&/' $MODPROP;
-fi
+# if $MONO; then
+	# mono; sed -ie 3's/$/-mo&/' $MODPROP;
+# fi
 
 case $ROM in
 	2 ) oxygen; sed -ie 3's/$/-oos&/' $MODPROP;;
