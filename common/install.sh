@@ -10,12 +10,10 @@ body() { cp $FONTDIR/bf/*ttf $SYSFONT; }
 condensed() { cp $FONTDIR/cf/*ttf $SYSFONT; }
 full() { headline; body; condensed; }
 alternative() { cp $FONTDIR/alt/*ttf $SYSFONT; }
+hftext() { cp $FONTDIR/txt/hf/*ttf $SYSFONT; }
 text() {
 	cp $FONTDIR/txt/bf/*ttf $SYSFONT
 	cp $FONTDIR/txt/cf/*ttf $SYSFONT
-	if $TXTHF; then
-		cp $FONTDIR/txt/hf/*ttf $SYSFONT
-	fi
 }
 original() { cp $FONTDIR/ori/*ttf $SYSFONT; }
 bolder() { cp $FONTDIR/bd/*ttf $SYSFONT; }
@@ -43,8 +41,8 @@ pixel() {
 	if [ -f /system/fonts/GoogleSans-Regular.ttf ]; then
 		DEST=$SYSFONT
 	fi
-	if $TXTHF; then
-		cp $SYSFONT/Roboto-Regular.ttf $DEST/GoogleSans-Regular.ttf
+	if [ $HFSTYLE -eq 2 ]; then
+		cp $FONTDIR/txt/bf/Roboto-Regular.ttf $DEST/GoogleSans-Regular.ttf
 		cp $SYSFONT/Roboto-Italic.ttf $DEST/GoogleSans-Italic.ttf
 		cp $SYSFONT/Roboto-Medium.ttf $DEST/GoogleSans-Medium.ttf
 		cp $SYSFONT/Roboto-MediumItalic.ttf $DEST/GoogleSans-MediumItalic.ttf
@@ -121,15 +119,38 @@ done
 ui_print "   "
 ui_print "  Selected: $PART"
 
+ui_print "   "
+ui_print "  ====================================================="
+ui_print "  Choose your favorite font styles. You don't really   "
+ui_print "  need to know the differences between these styles.   "
+ui_print "  Try each one until you find the most comfortable.    "
+ui_print "  ====================================================="
+HFSTYLE=1
+ui_print "   "
+ui_print "- Which headline font style do you like?"
+ui_print "  Vol+ = Select; Vol- = OK"
+ui_print "   "
+ui_print "  1. Default"
+ui_print "  2. Text"
+ui_print "   "
+ui_print "  Select:"
+while true; do
+	ui_print "  $HFSTYLE"
+	if $VKSEL; then
+		HFSTYLE=$((HFSTYLE + 1))
+	else 
+		break
+	fi
+	if [ $HFSTYLE -gt 2 ]; then
+		HFSTYLE=1
+	fi
+done
+ui_print "   "
+ui_print "  Selected: $HFSTYLE"
+
 STYLE=0
 if [ $PART -ne 2 ]; then
 	STYLE=1
-	ui_print "   "
-	ui_print "  ====================================================="
-	ui_print "  Body font is what you see the most. You don't need to"
-	ui_print "  know the differences between these styles. Just try  "
-	ui_print "  each one until you find the most comfortable.        "
-	ui_print "  ====================================================="
 	ui_print "   "
 	ui_print "- Which body font style do you like?"
 	ui_print "  Vol+ = Select; Vol- = OK"
@@ -156,36 +177,19 @@ if [ $PART -ne 2 ]; then
 	ui_print "  Selected: $STYLE"
 fi
 
-TXTHF=false
-if [ $STYLE -eq 3 ]; then
-	ui_print "   "
-	ui_print "  ====================================================="
-	ui_print "  By default a body style is only applied to body text."
-	ui_print "  Choose Yes if you want it system wide.               "
-	ui_print "  ====================================================="
-	ui_print "   "
-	ui_print "- Also use the selected style for headline?"
-	ui_print "  Vol+ = Yes; Vol- = No/Only Body + Condensed"
-	ui_print "   "
-	if $VKSEL; then
-		TXTHF=true	
-		ui_print "  Selected: Yes"
-	else
-		ui_print "  Selected: No"	
-	fi
-fi
-
 HL=false
-if [ $STYLE -ne 3 ]; then
-	ui_print "   "
-	ui_print "- Enable high legibility feature for body text?"
-	ui_print "  Vol+ = Yes; Vol- = No"
-	ui_print "   "
-	if $VKSEL; then
-		HL=true	
-		ui_print "  Selected: Yes"
-	else
-		ui_print "  Selected: No"	
+if [ $PART -ne 2 ]; then
+	if [ $STYLE -ne 3 ]; then
+		ui_print "   "
+		ui_print "- Enable high legibility feature for body text?"
+		ui_print "  Vol+ = Yes; Vol- = No"
+		ui_print "   "
+		if $VKSEL; then
+			HL=true	
+			ui_print "  Selected: Yes"
+		else
+			ui_print "  Selected: No"	
+		fi
 	fi
 fi
 
@@ -226,7 +230,7 @@ ui_print "   "
 ui_print "  ====================================================="
 ui_print "  This is the default fonts.xml file from Android Q.   "
 ui_print "  If your system font isn't changed after reboot, try  "
-ui_print "  enable this option may help.                         "
+ui_print "  enable this option might help.                       "
 ui_print "  ====================================================="
 ui_print "   "
 ui_print "- Use Android default font reference?"
@@ -249,6 +253,10 @@ case $PART in
 	1 ) full;;
 	2 ) headline; sed -ie 3's/$/-hf&/' $MODPROP;;
 	3 ) headline; body; sed -ie 3's/$/-hbf&/' $MODPROP;;
+esac
+
+case $HFSTYLE in
+        2 ) hftext; sed -ie 3's/$/-htxt&/' $MODPROP;;
 esac
 
 case $STYLE in
