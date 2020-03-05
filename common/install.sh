@@ -6,18 +6,28 @@ SYSXML=$SYSETC/fonts.xml
 MODPROP=$MODPATH/module.prop
 
 headline() { cp $FONTDIR/hf/*ttf $SYSFONT; }
+
 body() { cp $FONTDIR/bf/*ttf $SYSFONT; }
+
 condensed() { cp $FONTDIR/cf/*ttf $SYSFONT; }
+
 full() { headline; body; condensed; }
+
 alternative() { cp $FONTDIR/alt/*ttf $SYSFONT; }
+
 hftext() { cp $FONTDIR/txt/hf/*ttf $SYSFONT; }
+
 text() {
 	cp $FONTDIR/txt/bf/*ttf $SYSFONT
 	cp $FONTDIR/txt/cf/*ttf $SYSFONT
 }
+
 original() { cp $FONTDIR/ori/*ttf $SYSFONT; }
+
 bolder() { cp $FONTDIR/bd/*ttf $SYSFONT; }
+
 # mono() { cp $FONTDIR/mo/*ttf $SYSFONT; }
+
 legible() {
 	DEST=$FONTDIR/bf/hl
 	if [ $STYLE -eq 2 ]; then
@@ -29,7 +39,9 @@ legible() {
 	fi
 	cp $DEST/*ttf $SYSFONT;
 }
+
 xml() { cp $FONTDIR/xml/fonts.xml $SYSXML; }
+
 custom() { cp -rf $FONTDIR/system/* $MODPATH/system; }
 
 cleanup() {
