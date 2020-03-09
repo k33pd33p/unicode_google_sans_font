@@ -1,2 +1,3 @@
 Black Bold-5 Weight-Black
-I!=l Move-TopRight-v40
+Bold+ l Move-TopRight-v40
+Medium l Move-TopRight-v30

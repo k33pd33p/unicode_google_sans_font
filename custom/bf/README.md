@@ -4,5 +4,5 @@ Thin Thin-15 Move-v(-15) LSBat0 Weight-thin +Space
 Regular Rep-arrows-SW-SE Del-(chi-grek)
 Rep Nodef-Space
 Colon.center.case
-case otf
-I!=l Move-TopRight-v30
+numbers.case
+l Move-TopRight-v30
